@@ -2,9 +2,9 @@
     const companyInfo = {
         name: "重庆敏祥吊装租赁责任有限公司",
         contactPerson: "唐经理",
-        primaryPhone: "13759231757",
+        primaryPhone: "13752931757",
         secondaryPhone: "13752981786",
-        wechatPrimary: "13759231757",
+        wechatPrimary: "13752931757",
         wechatSecondary: "13752981786",
         wechatNote: "微信电话同号",
         address: "重庆市大渡口区",
@@ -330,9 +330,13 @@ html(lang='zh-CN')
                                 dd
                                     a.contact-number(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
                                     span.mx-2 /
-                                    a.contact-number.secondary(href=`tel:${companyInfo.secondaryPhone}`)= companyInfo.secondaryPhone
+                                    a.contact-number.secondary(href=`tel:${companyInfo.secondaryPhone}`, data-consult='phone-secondary')= companyInfo.secondaryPhone
                                 dt 微信
-                                dd #{companyInfo.wechatPrimary} / #{companyInfo.wechatSecondary} · #{companyInfo.wechatNote}
+                                dd
+                                    a.contact-number.wechat-number(href='#contact', data-copy-text=companyInfo.wechatPrimary, data-copy-label='微信号')= companyInfo.wechatPrimary
+                                    span.mx-2 /
+                                    a.contact-number.secondary.wechat-number(href='#contact', data-copy-text=companyInfo.wechatSecondary, data-copy-label='微信号')= companyInfo.wechatSecondary
+                                    span.ms-2= companyInfo.wechatNote
                                 dt 地址
                                 dd= companyInfo.address
                                 dt 服务区域
@@ -345,7 +349,7 @@ html(lang='zh-CN')
                         .qrcode-card.h-100#wechat-qrcode
                             img(src=companyInfo.qrcode, alt='重庆敏祥吊装租赁责任有限公司微信二维码')
                             h3 微信扫码咨询
-                            p #{companyInfo.wechatNote}，长按识别二维码添加微信。
+                            p 已复制手机号后，请打开微信搜索手机号添加好友。#{companyInfo.wechatNote}。
                             .qrcode-phone= companyInfo.wechatPrimary
 
         // Footer

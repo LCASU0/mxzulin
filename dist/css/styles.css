@@ -11559,11 +11559,15 @@ section#contact .contact-panel {
   color: #1f6f5b;
   font-size: 1.55rem;
   font-weight: 800;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 .contact-number.secondary {
   font-size: 1.25rem;
-  color: #343a40;
+  color: #1f6f5b;
+}
+.contact-number:hover {
+  color: #164f41;
 }
 
 .contact-tip {

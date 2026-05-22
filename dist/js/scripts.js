@@ -9,9 +9,9 @@
 
 window.addEventListener('DOMContentLoaded', () => {
     const companyInfo = window.companyInfo || {
-        primaryPhone: '13759231757',
+        primaryPhone: '13752931757',
         secondaryPhone: '13752981786',
-        wechatPrimary: '13759231757',
+        wechatPrimary: '13752931757',
         wechatNote: '微信电话同号',
         qrcode: 'assets/img/contact/wechat-qrcode.jpg'
     };
@@ -46,7 +46,6 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             window.location.hash = '#contact';
         }
-        showToast(`长按识别二维码添加微信，${companyInfo.wechatNote}。`);
     };
 
     document.querySelectorAll('[data-consult="phone"]').forEach((button) => {
@@ -64,17 +63,46 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelectorAll('[data-consult="wechat"]').forEach((button) => {
+    document.querySelectorAll('[data-consult="phone-secondary"]').forEach((button) => {
         button.addEventListener('click', (event) => {
             event.preventDefault();
+            const phone = companyInfo.secondaryPhone;
             if (isMobile) {
-                scrollToWechat();
+                window.location.href = `tel:${phone}`;
                 return;
             }
             copyText(
+                phone,
+                `电话号码已复制：${phone}`,
+                `请手动拨打：${phone}`
+            );
+        });
+    });
+
+    document.querySelectorAll('[data-consult="wechat"]').forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            scrollToWechat();
+            copyText(
                 companyInfo.wechatPrimary,
-                `微信号已复制：${companyInfo.wechatPrimary}`,
-                `请手动添加微信：${companyInfo.wechatPrimary}`
+                `手机号已复制：${companyInfo.wechatPrimary}，请打开微信搜索添加好友。`,
+                `请手动复制手机号：${companyInfo.wechatPrimary}，然后到微信中搜索添加。`
+            );
+        });
+    });
+
+    document.querySelectorAll('[data-copy-text]').forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const text = button.getAttribute('data-copy-text');
+            const label = button.getAttribute('data-copy-label') || '内容';
+            if (!text) {
+                return;
+            }
+            copyText(
+                text,
+                `${label}已复制：${text}`,
+                `请手动复制${label}：${text}`
             );
         });
     });

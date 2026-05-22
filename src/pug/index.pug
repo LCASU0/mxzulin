@@ -12,7 +12,7 @@
         qrcode: "assets/img/contact/wechat-qrcode.jpg"
     };
     const siteUrl = "https://mxzulin.com";
-    const logoImage = "assets/img/logo.png";
+    const logoImage = `${siteUrl}/assets/img/logo-dark.png`;
     const navLogoImage = "assets/img/logo-nav.png";
     const faviconImage = "assets/img/logo-favicon.png";
     const socialImage = `${siteUrl}/assets/img/logo-social.png`;
@@ -24,6 +24,8 @@
         "@type": "LocalBusiness",
         "name": companyInfo.name,
         "description": seoDescription,
+        "logo": logoImage,
+        "image": socialImage,
         "telephone": [companyInfo.primaryPhone, companyInfo.secondaryPhone],
         "address": {
             "@type": "PostalAddress",

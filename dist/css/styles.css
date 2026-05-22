@@ -10960,20 +10960,16 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.65rem;
-  height: 2.65rem;
+  width: 4.1rem;
+  height: 2.7rem;
   flex: 0 0 auto;
-  padding: 0.14rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.92));
-  border: 1px solid rgba(245, 179, 22, 0.45);
-  border-radius: 0.42rem;
-  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.22);
 }
 #mainNav .navbar-brand .navbar-logo {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  filter: drop-shadow(0 0.35rem 0.8rem rgba(0, 0, 0, 0.35));
 }
 #mainNav .navbar-brand .brand-mark {
   display: inline-flex;
@@ -11007,8 +11003,8 @@ p {
     transition: font-size 0.3s ease-in-out;
   }
   #mainNav .navbar-brand .navbar-logo-frame {
-    width: 3rem;
-    height: 3rem;
+    width: 4.4rem;
+    height: 2.9rem;
   }
   #mainNav .navbar-brand .brand-mark {
     font-size: 1.25rem;
@@ -11019,8 +11015,8 @@ p {
     background-color: rgba(21, 25, 29, 0.98);
   }
   #mainNav.navbar-shrink .navbar-brand .navbar-logo-frame {
-    width: 2.65rem;
-    height: 2.65rem;
+    width: 4.1rem;
+    height: 2.7rem;
   }
   #mainNav.navbar-shrink .navbar-brand .brand-mark {
     font-size: 1.1rem;

@@ -2,14 +2,11 @@
 // Colors
 //
 
-// Override Bootstrap color variables
-
-$yellow: #ffc800;
-
-// Override Bootstrap state colors variables
+$yellow: #f5b316;
+$green: #1f6f5b;
+$gray-950: #15191d;
 
 $primary: $yellow;
+$secondary: $green;
 
-// Override Bootstrap contrast ratio
-
-$min-contrast-ratio: 1.5;
+$min-contrast-ratio: 3;

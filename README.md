@@ -1,82 +1,106 @@
-# [Start Bootstrap - Agency](https://startbootstrap.com/theme/agency)
+# 重庆敏祥吊装租赁责任有限公司官网
 
-[Agency](https://startbootstrap.com/theme/agency) is a one page, agency portfolio theme built with [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid, modal windows for each portfolio item, and a working PHP based contact form.
+基于 StartBootstrap Agency 模板改造的一页式中文企业官网，面向起重机租赁、履带式起重机租赁、汽车式起重机租赁和吊装租赁获客场景。
 
-## Preview
+当前页面已重点覆盖“重庆履带吊”“重庆吊车”“重庆吊车出租”“重庆履带吊租赁”等客户常用搜索词，并在正文中同时保留“履带式起重机”“汽车式起重机”等专业叫法。
 
-[![Agency Preview](https://assets.startbootstrap.com/img/screenshots/themes/agency.png)](https://startbootstrap.github.io/startbootstrap-agency/)
+## 本地运行
 
-**[View Live Preview](https://startbootstrap.github.io/startbootstrap-agency/)**
+```bash
+npm install
+npm start
+```
 
-## Status
+启动后访问：
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-agency/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-agency.svg)](https://www.npmjs.com/package/startbootstrap-agency)
+```text
+http://localhost:3000
+```
 
-## Download and Installation
+只构建静态文件：
 
-To begin using this template, choose one of the following options to get started:
+```bash
+npm run build
+```
 
-- [Download the latest release on Start Bootstrap](https://startbootstrap.com/theme/agency)
-- Install using npm: `npm i startbootstrap-agency`
-- Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-agency.git`
-- [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-agency)
+构建产物在 `dist/` 目录。
 
-## Usage
+## 搜索引擎优化
 
-### Basic Usage
+已针对 Google、Bing、百度、搜狗、360 等搜索引擎做基础优化：
 
-After downloading, simply edit the HTML and CSS files included with `dist` directory. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+- 页面标题和描述重点覆盖“重庆履带吊”“重庆吊车”“重庆吊车出租”“重庆履带吊租赁”等客户常用词。
+- 页面正文使用“常用叫法 + 专业名称”，例如“重庆履带吊”对应“履带式起重机”，“重庆吊车”对应“汽车式起重机”。
+- 图片均保留描述性 `alt`，方便搜索引擎理解图片内容。
+- 页面包含 LocalBusiness 结构化数据，便于 Bing、Google 等识别公司、电话、地址和主营服务。
+- 构建时会生成 `robots.txt`，允许搜索引擎抓取。
 
-### Advanced Usage
+正式部署时建议带上域名生成 sitemap：
 
-Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `package.json` file to see which scripts are included.
+```powershell
+$env:SITE_URL="https://你的正式域名"
+npm run build
+```
 
-#### npm Scripts
+生成后会在 `dist/` 中得到 `robots.txt` 和 `sitemap.xml`。如果未设置 `SITE_URL`，项目会生成 `sitemap.example.xml` 作为替换模板，避免把错误域名提交给搜索引擎。
 
-- `npm run build` builds the project - this builds assets, HTML, JS, and CSS into `dist`
-- `npm run build:assets` copies the files in the `src/assets/` directory into `dist`
-- `npm run build:pug` compiles the Pug located in the `src/pug/` directory into `dist`
-- `npm run build:scripts` brings the `src/js/scripts.js` file into `dist`
-- `npm run build:scss` compiles the SCSS files located in the `src/scss/` directory into `dist`
-- `npm run clean` deletes the `dist` directory to prepare for rebuilding the project
-- `npm run start:debug` runs the project in debug mode
-- `npm start` or `npm run start` runs the project, launches a live preview in your default browser, and watches for changes made to files in `src`
+上线后建议提交：
 
-You must have npm installed in order to use this build environment.
+- Bing Webmaster Tools：提交站点和 `sitemap.xml`。
+- 百度搜索资源平台：提交站点和 sitemap。
+- 搜狗站长平台：提交 sitemap，并检查快照更新。
+- 360 搜索站长平台：提交站点和 sitemap。
 
-### Contact Form
+## 信息维护
 
-The contact form available with this theme is prebuilt to use [SB Forms](https://startbootstrap.com/solution/contact-forms).
-SB Forms is a simple form solution for adding functional forms to your theme. Since this theme is prebuilt using our
-SB Forms markup, all you need to do is sign up for [SB Forms on Start Bootstrap](https://startbootstrap.com/solution/contact-forms).
+公司信息集中在 `src/pug/index.pug` 顶部的 `companyInfo` 配置中：
 
-After signing up you will need to set the domain name your form will be used on, and you will then see your
-access key. Copy this and paste it into the `data-sb-form-api-token='API_TOKEN'` data attribute in place of
-`API_TOKEN`. That's it! Your forms will be up and running!
+- `primaryPhone`：主联系电话和主要复制号码
+- `secondaryPhone`：备用联系电话
+- `wechatPrimary`：主要微信号
+- `wechatSecondary`：备用微信号
+- `address`：公司地址
+- `serviceArea`：服务区域
+- `qrcode`：微信二维码路径
 
-If you aren't using SB Forms, simply delete the custom data attributes from the form, and remove the link above the
-closing `</body>` tag to SB Forms.
+电话和微信按钮交互逻辑在 `src/js/scripts.js`。
 
-## Bugs and Issues
+## 图片替换
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-agency/issues) here on GitHub or leave a comment on the [theme overview page at Start Bootstrap](https://startbootstrap.com/theme/agency).
+后续替换真实照片时，保持文件名不变即可：
 
-## About
+- 首页背景：`src/assets/img/hero/hero-crane.jpg`
+- 设备图片：`src/assets/img/equipment/`
+- 工程案例：`src/assets/img/portfolio/portfolio-*.jpg`
+- 微信二维码：`src/assets/img/contact/wechat-qrcode.jpg`
 
-Start Bootstrap is an open source library of free Bootstrap themes and templates. All of the free themes and templates on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+替换后运行 `npm run build`，新的图片会复制到 `dist/`。
 
-- <https://startbootstrap.com>
-- <https://twitter.com/SBootstrap>
+## 部署
 
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
+把 `dist/` 目录内的所有文件上传到服务器网站根目录，或部署到任意静态托管平台。入口文件是 `dist/index.html`。
 
-- <https://davidmiller.io>
-- <https://twitter.com/davidmillerhere>
-- <https://github.com/davidtmiller>
+## 自动部署
 
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+仓库已配置 GitHub Actions：`.github/workflows/deploy-cloudflare-pages.yml`。
 
-## Copyright and License
+每次 push 到 `main` 分支时会自动：
 
-Copyright 2013-2023 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE) license.
+1. 安装依赖
+2. 使用 `SITE_URL=https://mxzulin.com` 构建静态文件
+3. 创建或复用 Cloudflare Pages 项目 `mxzulin`
+4. 部署 `dist/` 到 Cloudflare Pages
+5. 尝试把自定义域名 `mxzulin.com` 绑定到 Pages 项目
+
+GitHub Secrets 需要包含：
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+
+GitHub Variables 需要包含：
+
+- `SITE_URL=https://mxzulin.com`
+
+## 模板来源
+
+原始模板来自 StartBootstrap/startbootstrap-agency，模板代码遵循 MIT License。

@@ -1,5 +1,5 @@
 //
-// Portfolio section styling
+// 工程案例展示样式
 //
 
 #portfolio {
@@ -7,18 +7,27 @@
         max-width: 26rem;
         margin-left: auto;
         margin-right: auto;
+        border-radius: 0.35rem;
+        overflow: hidden;
+        box-shadow: 0 0.75rem 1.5rem rgba($black, 0.08);
 
         .portfolio-link {
             position: relative;
             display: block;
             margin: 0 auto;
 
+            img {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
             .portfolio-hover {
                 display: flex;
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background: fade-out($primary, 0.1);
+                background: rgba($gray-950, 0.72);
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
@@ -39,18 +48,17 @@
 
         .portfolio-caption {
             padding: 1.5rem;
-            text-align: center;
+            text-align: left;
             background-color: $white;
 
             .portfolio-caption-heading {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 font-family: $headings-font-family;
                 font-weight: $headings-font-weight;
                 margin-bottom: 0;
             }
 
             .portfolio-caption-subheading {
-                font-style: italic;
                 font-family: $subheadings-font-family;
             }
         }
@@ -64,17 +72,16 @@
     }
 
     .modal-content {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
         text-align: center;
 
         h2 {
-            font-size: 3rem;
-            line-height: 3rem;
+            font-size: 2rem;
+            line-height: 1.25;
         }
 
         p.item-intro {
-            font-style: italic;
             margin-bottom: 2rem;
             font-family: $subheadings-font-family;
         }
@@ -88,6 +95,9 @@
         }
 
         img {
+            width: min(100%, 44rem);
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
             margin-bottom: 2rem;
         }
     }
@@ -105,4 +115,13 @@
             opacity: 0.3;
         }
     }
+}
+
+.modal-contact-box {
+    max-width: 34rem;
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+    background-color: #f6f7f4;
+    border-left: 0.35rem solid $primary;
+    text-align: left;
 }

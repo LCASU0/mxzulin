@@ -13,6 +13,8 @@ html {
 
 body {
     position: relative;
+    color: $gray-900;
+    background-color: #f6f7f4;
     // Disabled for now due to incompatibility with ScrollSpy in Bootstrap 5.2.x
     // overflow-x: hidden;
 }
@@ -26,10 +28,10 @@ p {
 // Spacing and heading styling for page sections
 
 .page-section {
-    padding: 6rem 0;
+    padding: 4.5rem 0;
 
     h2.section-heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-top: 0;
         margin-bottom: 1rem;
     }
@@ -37,10 +39,18 @@ p {
     h3.section-subheading {
         font-size: 1rem;
         font-weight: 400;
-        font-style: italic;
         font-family: $subheadings-font-family;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
+}
+
+.section-intro {
+    max-width: 58rem;
+    margin: 0 auto;
+}
+
+.bg-light {
+    background-color: #eef0eb !important;
 }
 
 // Increase the padding on sections when screen size is greater
@@ -48,6 +58,24 @@ p {
 
 @include media-breakpoint-up(md) {
     section {
-        padding: 9rem 0;
+        padding: 6rem 0;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    body {
+        padding-bottom: 4.75rem;
+    }
+
+    .page-section {
+        padding: 3.5rem 0;
+
+        h2.section-heading {
+            font-size: 1.65rem;
+        }
+
+        h3.section-subheading {
+            margin-bottom: 2rem;
+        }
     }
 }

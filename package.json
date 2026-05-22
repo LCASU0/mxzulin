@@ -1,39 +1,33 @@
 {
-    "title": "Agency",
-    "name": "startbootstrap-agency",
+    "title": "重庆敏祥吊装租赁责任有限公司官网",
+    "name": "chongqing-minxiang-crane-rental",
     "version": "7.0.12",
     "scripts": {
-        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
+        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets && npm run build:seo-assets",
         "build:assets": "node scripts/build-assets.js",
         "build:pug": "node scripts/build-pug.js",
+        "build:seo-assets": "node scripts/build-seo-assets.js",
         "build:scripts": "node scripts/build-scripts.js",
         "build:scss": "node scripts/build-scss.js",
         "clean": "node scripts/clean.js",
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js"
     },
-    "description": "Agency is a one page HTML theme for Bootstrap.",
+    "description": "重庆敏祥吊装租赁责任有限公司一页式企业官网，主营履带式起重机租赁、汽车式起重机租赁和吊装租赁。",
     "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
+        "重庆起重机租赁",
+        "重庆吊装租赁",
+        "履带式起重机租赁",
+        "汽车式起重机租赁",
+        "渝贵川起重机租赁"
     ],
-    "homepage": "https://startbootstrap.com/theme/agency",
-    "bugs": {
-        "url": "https://github.com/StartBootstrap/startbootstrap-agency/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "homepage": "",
     "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (https://davidmiller.io/)"
-    ],
+    "author": "重庆敏祥吊装租赁责任有限公司",
+    "contributors": [],
     "repository": {
         "type": "git",
-        "url": "https://github.com/StartBootstrap/startbootstrap-agency.git"
+        "url": "https://github.com/LCASU0/mxzulin.git"
     },
     "dependencies": {
         "bootstrap": "5.2.3"

@@ -13,6 +13,7 @@
     };
     const siteUrl = "https://mxzulin.com";
     const logoImage = "assets/img/logo.png";
+    const navLogoImage = "assets/img/logo-nav.png";
     const faviconImage = "assets/img/logo-favicon.png";
     const socialImage = `${siteUrl}/assets/img/logo-social.png`;
     const seoTitle = "重庆履带吊租赁_重庆吊车出租_重庆起重机吊装-重庆敏祥吊装租赁责任有限公司";
@@ -168,7 +169,8 @@ html(lang='zh-CN')
         nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
             .container
                 a.navbar-brand(href='#home', aria-label=companyInfo.name)
-                    img.navbar-logo(src=logoImage, width='44', height='44', alt=`${companyInfo.name}标志`)
+                    span.navbar-logo-frame
+                        img.navbar-logo(src=navLogoImage, width='40', height='40', alt=`${companyInfo.name}标志`)
                     span.brand-mark 敏祥吊装
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='展开导航')
                     | 导航

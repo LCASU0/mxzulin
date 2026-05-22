@@ -12,6 +12,9 @@
         qrcode: "assets/img/contact/wechat-qrcode.jpg"
     };
     const siteUrl = "https://mxzulin.com";
+    const logoImage = "assets/img/logo.png";
+    const faviconImage = "assets/img/logo-favicon.png";
+    const socialImage = `${siteUrl}/assets/img/logo-social.png`;
     const seoTitle = "重庆履带吊租赁_重庆吊车出租_重庆起重机吊装-重庆敏祥吊装租赁责任有限公司";
     const seoDescription = "重庆敏祥吊装租赁责任有限公司位于重庆市大渡口区，服务渝贵川及周边区县，主营重庆履带吊租赁、重庆吊车出租、履带式起重机租赁、汽车式起重机租赁和大型设备吊装。设备覆盖25吨至500吨，不确定需要多大吨位可直接联系唐经理，电话微信同号。";
     const seoKeywords = "重庆履带吊,重庆履带吊租赁,重庆吊车,重庆吊车出租,重庆起重机租赁,重庆吊装租赁,重庆履带式起重机租赁,重庆汽车式起重机租赁,重庆履带吊出租,重庆汽车吊出租,重庆汽车吊租赁,渝贵川履带吊租赁,渝贵川吊车出租,大渡口吊车出租,大渡口起重机租赁,25吨吊车出租,55吨履带吊租赁,75吨履带吊租赁,100吨履带吊租赁,200吨履带吊租赁,500吨履带吊租赁";
@@ -134,12 +137,18 @@ html(lang='zh-CN')
         meta(property='og:title', content=seoTitle)
         meta(property='og:description', content=seoDescription)
         meta(property='og:url', content=siteUrl)
+        meta(property='og:image', content=socialImage)
+        meta(property='og:image:alt', content=`${companyInfo.name}标志`)
+        meta(name='twitter:card', content='summary_large_image')
+        meta(name='twitter:image', content=socialImage)
         link(rel='canonical', href=siteUrl)
 
         title= seoTitle
 
         // Favicon
         link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+        link(rel='icon', type='image/png', sizes='64x64', href=faviconImage)
+        link(rel='apple-touch-icon', sizes='180x180', href='assets/apple-touch-icon.png')
 
         // Font Awesome icons (free version)
         script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
@@ -159,6 +168,7 @@ html(lang='zh-CN')
         nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
             .container
                 a.navbar-brand(href='#home', aria-label=companyInfo.name)
+                    img.navbar-logo(src=logoImage, width='44', height='44', alt=`${companyInfo.name}标志`)
                     span.brand-mark 敏祥吊装
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='展开导航')
                     | 导航

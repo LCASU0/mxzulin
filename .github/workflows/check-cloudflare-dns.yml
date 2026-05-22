@@ -1,0 +1,72 @@
+name: Check Cloudflare DNS Permission
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  ZONE_NAME: mxzulin.com
+
+jobs:
+  check:
+    name: Check DNS API permissions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check zone read and DNS edit
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          auth_header="Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"
+          zone_response="$(mktemp)"
+
+          echo "Checking Zone Read permission for ${ZONE_NAME}..."
+          zone_status="$(curl -sS -o "$zone_response" -w "%{http_code}" \
+            -G "https://api.cloudflare.com/client/v4/zones" \
+            -H "$auth_header" \
+            --data-urlencode "name=${ZONE_NAME}")"
+
+          if [ "$zone_status" != "200" ]; then
+            echo "Zone Read check failed with HTTP ${zone_status}."
+            cat "$zone_response"
+            exit 1
+          fi
+
+          zone_id="$(node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync(process.argv[1],'utf8')); if(!data.success || !data.result?.length){ process.exit(2); } console.log(data.result[0].id);" "$zone_response")"
+          echo "Zone Read permission OK."
+
+          record_name="_codex-dns-check.${ZONE_NAME}"
+          create_response="$(mktemp)"
+          delete_response="$(mktemp)"
+
+          echo "Checking DNS Edit permission with temporary TXT record ${record_name}..."
+          create_status="$(curl -sS -o "$create_response" -w "%{http_code}" \
+            -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/dns_records" \
+            -H "$auth_header" \
+            -H "Content-Type: application/json" \
+            --data "{\"type\":\"TXT\",\"name\":\"${record_name}\",\"content\":\"codex-dns-permission-check\",\"ttl\":60,\"comment\":\"Temporary Codex DNS permission check\"}")"
+
+          if [ "$create_status" != "200" ]; then
+            echo "DNS Edit create check failed with HTTP ${create_status}."
+            cat "$create_response"
+            exit 1
+          fi
+
+          record_id="$(node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync(process.argv[1],'utf8')); if(!data.success || !data.result?.id){ process.exit(2); } console.log(data.result.id);" "$create_response")"
+          echo "Temporary DNS record created."
+
+          delete_status="$(curl -sS -o "$delete_response" -w "%{http_code}" \
+            -X DELETE "https://api.cloudflare.com/client/v4/zones/${zone_id}/dns_records/${record_id}" \
+            -H "$auth_header")"
+
+          if [ "$delete_status" != "200" ]; then
+            echo "Temporary record was created but delete failed with HTTP ${delete_status}."
+            cat "$delete_response"
+            exit 1
+          fi
+
+          echo "DNS Edit permission OK. Temporary record deleted."

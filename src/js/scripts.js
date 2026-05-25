@@ -104,6 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const plannerForm = document.querySelector('#liftingPlannerForm');
     const plannerResult = document.querySelector('#liftingResult');
+    const plannerSubmitButton = document.querySelector('#generateLiftingSuggestion');
     if (plannerForm && plannerResult) {
         const craneOptions = [
             { ton: 25, type: 'truck', label: '25吨汽车式起重机' },
@@ -166,8 +167,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const roundToFive = (value) => Math.ceil(value / 5) * 5;
         const formatNumber = (value) => Number.isInteger(value) ? `${value}` : `${value.toFixed(1)}`;
 
-        plannerForm.addEventListener('submit', (event) => {
+        const generatePlannerSuggestion = (event) => {
             event.preventDefault();
+            if (typeof plannerForm.reportValidity === 'function' && !plannerForm.reportValidity()) {
+                return;
+            }
             const load = getNumber('#liftLoad');
             const height = getNumber('#liftHeight');
             const radius = getNumber('#liftRadius');
@@ -245,7 +249,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     `请手动拨打：${companyInfo.primaryPhone}`
                 );
             });
+        };
+
+        plannerForm.addEventListener('submit', generatePlannerSuggestion);
+        plannerForm.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && event.target.matches('input, select')) {
+                generatePlannerSuggestion(event);
+            }
         });
+        if (plannerSubmitButton) {
+            plannerSubmitButton.addEventListener('click', generatePlannerSuggestion);
+        }
     }
 
     const navbarShrink = () => {

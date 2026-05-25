@@ -77,7 +77,7 @@ html(lang='zh-CN')
         link(rel='icon', type='image/png', sizes='64x64', href=faviconImage)
         link(rel='apple-touch-icon', sizes='180x180', href='assets/apple-touch-icon.png')
         script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
-        link(href='css/styles.css?v=20260526-nav-offset', rel='stylesheet')
+        link(href='css/styles.css?v=20260526-planner-standard', rel='stylesheet')
 
     body#page-top.planner-page
         script.
@@ -105,23 +105,29 @@ html(lang='zh-CN')
                         li.nav-item
                             a.nav-link(href='#contact') 联系我们
 
-        header.planner-hero
-            .planner-hero-overlay
+        section#planner.page-section.lifting-planner.planner-primary
             .container
-                .row.align-items-center
-                    .col-lg-9
-                        .masthead-kicker 重庆敏祥吊装
-                        h1 吊装选型初算
-                        p 输入吊重、作业高度和作业半径，先得到一个用于沟通的起重机吨位建议。正式吊装方案仍需结合设备工况表、现场地基、支腿或履带站位、障碍物、索具和天气复核。
-                        .hero-contact
-                            .hero-phone
-                                span 联系唐经理复核方案
-                                strong= companyInfo.primaryPhone
-                                small 备用：#{companyInfo.secondaryPhone} · 微信电话同号
-                            +consultButtons('hero-actions')
-
-        section#planner.page-section.lifting-planner
-            .container
+                .row.align-items-center.g-4.mb-5
+                    .col-lg-8
+                        .planner-kicker 重庆敏祥吊装 · 吊装选型
+                        h1.section-heading 吊装选型初算
+                        p.planner-lead 输入吊重、作业高度和作业半径，先得到一个用于沟通的起重机吨位建议。正式方案仍需结合设备工况表、现场地基、支腿或履带站位、障碍物、索具和天气复核。
+                        .planner-flow
+                            .planner-flow-item
+                                span 第一步
+                                strong 填写吊重、高度、半径
+                            .planner-flow-item
+                                span 第二步
+                                strong 生成初步吨位建议
+                            .planner-flow-item
+                                span 第三步
+                                strong 复制给唐经理复核
+                    .col-lg-4.d-none.d-lg-block
+                        .contact-panel.compact.planner-contact-callout
+                            h3 联系唐经理复核
+                            a.panel-phone(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
+                            p.mb-3 备用：#{companyInfo.secondaryPhone} · 微信电话同号
+                            +consultButtons('dark-actions')
                 .text-center.section-intro
                     h2.section-heading 起重机吨位初步选择
                     h3.section-subheading.text-muted 客户可先填写三个关键数据，页面会生成建议沟通吨位和一段可直接复制给经理的需求说明。

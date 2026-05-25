@@ -1,0 +1,231 @@
+//
+// Lifting planner page styling
+//
+
+.planner-page {
+    background-color: $white;
+    padding-top: 5.75rem;
+
+    #mainNav {
+        background-color: rgba($gray-950, 0.98);
+    }
+
+    .page-section {
+        scroll-margin-top: 5.75rem;
+    }
+}
+
+.planner-primary {
+    padding-top: 4rem;
+    background:
+        linear-gradient(180deg, rgba($white, 0.96), rgba($white, 1) 38%),
+        linear-gradient(90deg, rgba($primary, 0.12), rgba($secondary, 0.08));
+}
+
+.planner-kicker {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    margin-bottom: 0.85rem;
+    padding: 0.28rem 0.62rem;
+    border-left: 0.25rem solid $primary;
+    background-color: rgba($primary, 0.12);
+    color: $secondary;
+    font-weight: 800;
+}
+
+.planner-lead {
+    max-width: 46rem;
+    margin-bottom: 1.25rem;
+    color: $gray-700;
+    font-size: 1.08rem;
+}
+
+.planner-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    max-width: 44rem;
+}
+
+.planner-flow-item {
+    min-height: 4.75rem;
+    padding: 0.85rem;
+    border-left: 0.25rem solid $primary;
+    background-color: $white;
+    box-shadow: 0 0.6rem 1.2rem rgba($black, 0.06);
+
+    span {
+        display: block;
+        color: $secondary;
+        font-size: 0.82rem;
+        font-weight: 800;
+    }
+
+    strong {
+        display: block;
+        margin-top: 0.25rem;
+        color: $gray-900;
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+}
+
+.planner-contact-callout {
+    border-top: 0.35rem solid $primary;
+
+    .panel-phone {
+        margin-bottom: 0.4rem;
+    }
+
+    p {
+        color: $gray-600;
+    }
+}
+
+.lifting-planner {
+    background-color: $white;
+}
+
+.planner-card,
+.planner-result,
+.parameter-table-panel {
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid rgba($gray-900, 0.1);
+    border-radius: 0.35rem;
+    background-color: $white;
+    box-shadow: 0 1rem 2rem rgba($black, 0.08);
+}
+
+.planner-card {
+    .form-label {
+        color: $gray-900;
+        font-weight: 800;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 3rem;
+        border-radius: 0.25rem;
+    }
+}
+
+.planner-warning {
+    padding: 0.9rem 1rem;
+    border-left: 0.3rem solid $primary;
+    background-color: rgba($primary, 0.12);
+    color: $gray-900;
+}
+
+.planner-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 28rem;
+    background-color: #f6f7f4;
+
+    &.has-result {
+        justify-content: flex-start;
+    }
+
+    h3 {
+        color: $secondary;
+        font-size: 1.65rem;
+    }
+}
+
+.result-empty {
+    text-align: center;
+
+    svg,
+    i {
+        margin-bottom: 1rem;
+        color: $primary;
+        font-size: 3rem;
+    }
+
+    p {
+        margin-bottom: 0;
+        color: $gray-600;
+    }
+}
+
+.result-label {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.55rem;
+    background-color: rgba($secondary, 0.12);
+    color: $secondary;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.result-checklist {
+    margin-bottom: 1rem;
+    padding-left: 1.15rem;
+}
+
+.result-copy {
+    resize: vertical;
+    background-color: $white;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.parameter-table-panel {
+    h3 {
+        margin-bottom: 1rem;
+        font-size: 1.35rem;
+    }
+}
+
+.parameter-table {
+    margin-bottom: 0;
+
+    th {
+        color: $gray-900;
+        white-space: nowrap;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .planner-primary {
+        padding-top: 2.25rem;
+
+        .row.align-items-center {
+            margin-bottom: 1.75rem !important;
+        }
+    }
+
+    .planner-flow {
+        display: none;
+    }
+
+    .lifting-planner {
+        .section-intro {
+            margin-bottom: 1.5rem;
+            text-align: left;
+
+            .section-subheading {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .planner-card,
+    .planner-result,
+    .parameter-table-panel {
+        padding: 1.15rem;
+    }
+}

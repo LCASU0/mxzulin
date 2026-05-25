@@ -11445,117 +11445,77 @@ header.masthead .hero-phone strong {
   color: #495057;
 }
 
-.equipment-feature .feature-img {
-  width: 100%;
-  min-height: 18rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 0.35rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
-}
-.equipment-feature .feature-copy {
-  padding: 1.5rem;
-  border-left: 0.35rem solid #f5b316;
-  background-color: #fff;
-}
-.equipment-feature .feature-copy h3, .equipment-feature .feature-copy .h3 {
-  margin-bottom: 0.75rem;
-  font-size: 1.45rem;
-}
-
-.equipment-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 13.5rem;
-  border: 1px solid rgba(33, 37, 41, 0.12);
-  border-radius: 0.35rem;
-  background-color: #fff;
-  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.06);
-}
-
-.equipment-card-body {
-  padding: 1.25rem 1.25rem 0.75rem;
-}
-
-.equipment-type {
-  display: inline-flex;
-  margin-bottom: 0.65rem;
-  padding: 0.25rem 0.55rem;
-  background-color: rgba(31, 111, 91, 0.1);
-  color: #1f6f5b;
-  font-weight: 700;
-  font-size: 0.88rem;
-}
-
-.equipment-title {
-  min-height: 3rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.15rem;
-  line-height: 1.35;
-}
-
-.equipment-note {
-  margin-bottom: 0;
-  color: #6c757d;
-}
-
-.equipment-card-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  padding: 0 1.25rem 1.25rem;
-}
-
-.consult-note {
-  padding: 1rem 1.25rem;
-  border-left: 0.35rem solid #f5b316;
-  background-color: rgba(245, 179, 22, 0.12);
-}
-
-.parameters-section {
-  background-color: #fff;
-}
-.parameters-section .parameters-box,
-.parameters-section .contact-panel.compact {
-  border-radius: 0.35rem;
-  background-color: #f6f7f4;
-  box-shadow: inset 0 0 0 1px rgba(33, 37, 41, 0.08);
-}
-.parameters-section .parameters-box {
-  padding: 1.35rem;
-}
-
 .planner-page {
   background-color: #fff;
   padding-top: 5.75rem;
+}
+.planner-page #mainNav {
+  background-color: rgba(21, 25, 29, 0.98);
 }
 .planner-page .page-section {
   scroll-margin-top: 5.75rem;
 }
 
-.planner-hero {
-  position: relative;
-  min-height: 25rem;
-  padding: 4rem 0;
-  color: #fff;
-  background-image: linear-gradient(90deg, rgba(21, 25, 29, 0.92), rgba(21, 25, 29, 0.58)), url("../assets/img/hero/hero-crane.jpg");
-  background-size: cover;
-  background-position: center;
+.planner-primary {
+  padding-top: 4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), white 38%), linear-gradient(90deg, rgba(245, 179, 22, 0.12), rgba(31, 111, 91, 0.08));
 }
-.planner-hero h1, .planner-hero .h1 {
-  margin-bottom: 1rem;
-  font-size: clamp(2.2rem, 5vw, 4.25rem);
-  line-height: 1.1;
+
+.planner-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  margin-bottom: 0.85rem;
+  padding: 0.28rem 0.62rem;
+  border-left: 0.25rem solid #f5b316;
+  background-color: rgba(245, 179, 22, 0.12);
+  color: #1f6f5b;
+  font-weight: 800;
 }
-.planner-hero p {
-  max-width: 48rem;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 1.12rem;
+
+.planner-lead {
+  max-width: 46rem;
+  margin-bottom: 1.25rem;
+  color: #495057;
+  font-size: 1.08rem;
 }
-.planner-hero .hero-contact {
-  align-items: flex-start;
-  text-align: left;
+
+.planner-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 44rem;
+}
+
+.planner-flow-item {
+  min-height: 4.75rem;
+  padding: 0.85rem;
+  border-left: 0.25rem solid #f5b316;
+  background-color: #fff;
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.06);
+}
+.planner-flow-item span {
+  display: block;
+  color: #1f6f5b;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+.planner-flow-item strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: #212529;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.planner-contact-callout {
+  border-top: 0.35rem solid #f5b316;
+}
+.planner-contact-callout .panel-phone {
+  margin-bottom: 0.4rem;
+}
+.planner-contact-callout p {
+  color: #6c757d;
 }
 
 .lifting-planner {
@@ -11661,6 +11621,110 @@ header.masthead .hero-phone strong {
 }
 .parameter-table td {
   vertical-align: middle;
+}
+
+@media (max-width: 767.98px) {
+  .planner-primary {
+    padding-top: 2.25rem;
+  }
+  .planner-primary .row.align-items-center {
+    margin-bottom: 1.75rem !important;
+  }
+  .planner-flow {
+    display: none;
+  }
+  .lifting-planner .section-intro {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  .lifting-planner .section-intro .section-subheading {
+    margin-bottom: 0;
+  }
+  .planner-card,
+  .planner-result,
+  .parameter-table-panel {
+    padding: 1.15rem;
+  }
+}
+.equipment-feature .feature-img {
+  width: 100%;
+  min-height: 18rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.35rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+}
+.equipment-feature .feature-copy {
+  padding: 1.5rem;
+  border-left: 0.35rem solid #f5b316;
+  background-color: #fff;
+}
+.equipment-feature .feature-copy h3, .equipment-feature .feature-copy .h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.45rem;
+}
+
+.equipment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 13.5rem;
+  border: 1px solid rgba(33, 37, 41, 0.12);
+  border-radius: 0.35rem;
+  background-color: #fff;
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.06);
+}
+
+.equipment-card-body {
+  padding: 1.25rem 1.25rem 0.75rem;
+}
+
+.equipment-type {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  padding: 0.25rem 0.55rem;
+  background-color: rgba(31, 111, 91, 0.1);
+  color: #1f6f5b;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.equipment-title {
+  min-height: 3rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.equipment-note {
+  margin-bottom: 0;
+  color: #6c757d;
+}
+
+.equipment-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.consult-note {
+  padding: 1rem 1.25rem;
+  border-left: 0.35rem solid #f5b316;
+  background-color: rgba(245, 179, 22, 0.12);
+}
+
+.parameters-section {
+  background-color: #fff;
+}
+.parameters-section .parameters-box,
+.parameters-section .contact-panel.compact {
+  border-radius: 0.35rem;
+  background-color: #f6f7f4;
+  box-shadow: inset 0 0 0 1px rgba(33, 37, 41, 0.08);
+}
+.parameters-section .parameters-box {
+  padding: 1.35rem;
 }
 
 .contact-panel {
@@ -11850,18 +11914,6 @@ section#contact .contact-panel {
   }
   .consult-toast {
     bottom: 4.8rem;
-  }
-  .planner-hero {
-    min-height: auto;
-    padding: 3.25rem 0 3rem;
-  }
-  .planner-hero h1, .planner-hero .h1 {
-    font-size: 2.25rem;
-  }
-  .planner-card,
-  .planner-result,
-  .parameter-table-panel {
-    padding: 1.15rem;
   }
 }
 .footer {

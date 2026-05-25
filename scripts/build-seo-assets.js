@@ -5,15 +5,18 @@ const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..');
 const distPath = path.join(repoRoot, 'dist');
-const sourceIndexPath = path.join(repoRoot, 'src', 'pug', 'index.pug');
+const sitemapPages = [
+    { loc: '/', source: path.join(repoRoot, 'src', 'pug', 'index.pug') },
+    { loc: '/lifting-plan.html', source: path.join(repoRoot, 'src', 'pug', 'lifting-plan.pug') },
+];
 const siteUrl = (process.env.SITE_URL || '').trim().replace(/\/+$/, '');
 
 function ensureDist() {
     fs.mkdirSync(distPath, { recursive: true });
 }
 
-function getLastMod() {
-    const stats = fs.statSync(sourceIndexPath);
+function getLastMod(sourcePath) {
+    const stats = fs.statSync(sourcePath);
     return stats.mtime.toISOString().slice(0, 10);
 }
 
@@ -42,12 +45,15 @@ function writeSitemap() {
         if (fs.existsSync(sitemapPath)) {
             fs.unlinkSync(sitemapPath);
         }
+        const urls = sitemapPages.map((page) => (
+            `    <url>\n` +
+            `        <loc>https://你的正式域名${page.loc}</loc>\n` +
+            `        <lastmod>${getLastMod(page.source)}</lastmod>\n` +
+            `    </url>`
+        )).join('\n');
         const template = `<?xml version="1.0" encoding="UTF-8"?>\n` +
             `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-            `    <url>\n` +
-            `        <loc>https://你的正式域名/</loc>\n` +
-            `        <lastmod>${getLastMod()}</lastmod>\n` +
-            `    </url>\n` +
+            `${urls}\n` +
             `</urlset>\n`;
         fs.writeFileSync(path.join(distPath, 'sitemap.example.xml'), template, 'utf8');
         return;
@@ -57,12 +63,15 @@ function writeSitemap() {
     if (fs.existsSync(examplePath)) {
         fs.unlinkSync(examplePath);
     }
+    const urls = sitemapPages.map((page) => (
+        `    <url>\n` +
+        `        <loc>${siteUrl}${page.loc}</loc>\n` +
+        `        <lastmod>${getLastMod(page.source)}</lastmod>\n` +
+        `    </url>`
+    )).join('\n');
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n` +
         `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-        `    <url>\n` +
-        `        <loc>${siteUrl}/</loc>\n` +
-        `        <lastmod>${getLastMod()}</lastmod>\n` +
-        `    </url>\n` +
+        `${urls}\n` +
         `</urlset>\n`;
     fs.writeFileSync(path.join(distPath, 'sitemap.xml'), sitemap, 'utf8');
 }

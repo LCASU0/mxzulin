@@ -1,0 +1,273 @@
+-
+    const companyInfo = {
+        name: "重庆敏祥吊装租赁责任有限公司",
+        contactPerson: "唐经理",
+        primaryPhone: "13752931757",
+        secondaryPhone: "13752981786",
+        wechatPrimary: "13752931757",
+        wechatSecondary: "13752981786",
+        wechatNote: "微信电话同号",
+        address: "重庆市大渡口区",
+        serviceArea: "渝贵川及周边区县",
+        qrcode: "assets/img/contact/wechat-qrcode.jpg"
+    };
+    const siteUrl = "https://mxzulin.com";
+    const navLogoImage = "assets/img/logo-nav.png";
+    const faviconImage = "assets/img/logo-favicon.png";
+    const socialImage = `${siteUrl}/assets/img/logo-social.png`;
+    const seoTitle = "吊装选型初算_起重机吨位选择_重庆履带吊租赁-重庆敏祥吊装";
+    const seoDescription = "重庆敏祥吊装提供吊装选型初步参考，客户可输入吊重、作业高度、作业半径，整理吊装需求并沟通履带吊、汽车吊吨位选择。";
+    const seoKeywords = "吊装选型,起重机吨位选择,吊车吨位计算,重庆履带吊租赁,重庆吊车出租,吊装方案";
+    const truckCranes = [
+        ["25吨汽车式起重机", "轻型设备、厂区吊装、临时装卸"],
+        ["55吨汽车式起重机", "中小型设备吊装、厂区吊装"],
+        ["75吨汽车式起重机", "常规工程吊装、设备就位"],
+        ["100吨汽车式起重机", "中型设备吊装、较高作业"],
+        ["135吨汽车式起重机", "较大半径或较高高度吊装"],
+        ["150吨汽车式起重机", "中大型设备吊装"],
+        ["200吨汽车式起重机", "大型构件、较复杂工况"],
+        ["280吨汽车式起重机", "大件吊装、较远作业半径"],
+        ["320吨汽车式起重机", "大型工程吊装"],
+        ["400吨汽车式起重机", "重型设备、复杂现场"],
+        ["500吨汽车式起重机", "重型吊装、大件吊装"]
+    ];
+    const crawlerCranes = [
+        ["25吨伸缩臂履带式起重机", "小吨位履带式设备，具体工况需电话确认"],
+        ["55吨履带式起重机", "场地稳定、连续作业、履带站位"],
+        ["75吨履带式起重机", "中小型履带吊装"],
+        ["100吨履带式起重机", "中型设备、钢结构吊装"],
+        ["135吨履带式起重机", "较大半径工况"],
+        ["150吨履带式起重机", "中大型履带吊装"],
+        ["200吨履带式起重机", "大型设备和较复杂工况"],
+        ["280吨履带式起重机", "大件吊装、较远半径"],
+        ["320吨履带式起重机", "大型工程吊装"],
+        ["400吨履带式起重机", "重型设备吊装"],
+        ["500吨履带式起重机", "重型、大件、长周期吊装"]
+    ];
+
+mixin consultButtons(extraClass)
+    .consult-actions(class=extraClass)
+        a.btn.btn-primary.btn-consult(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')
+            i.fas.fa-phone.me-2
+            | 电话咨询
+        a.btn.btn-outline-light.btn-consult(href='#contact', data-consult='wechat')
+            i.fab.fa-weixin.me-2
+            | 微信咨询
+
+doctype html
+html(lang='zh-CN')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name='applicable-device', content='pc,mobile')
+        meta(name='description', content=seoDescription)
+        meta(name='keywords', content=seoKeywords)
+        meta(name='author', content=companyInfo.name)
+        meta(name='robots', content='index,follow')
+        meta(property='og:type', content='website')
+        meta(property='og:title', content=seoTitle)
+        meta(property='og:description', content=seoDescription)
+        meta(property='og:url', content=`${siteUrl}/lifting-plan.html`)
+        meta(property='og:image', content=socialImage)
+        meta(name='twitter:card', content='summary_large_image')
+        link(rel='canonical', href=`${siteUrl}/lifting-plan.html`)
+        title= seoTitle
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+        link(rel='icon', type='image/png', sizes='64x64', href=faviconImage)
+        link(rel='apple-touch-icon', sizes='180x180', href='assets/apple-touch-icon.png')
+        script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
+        link(href='css/styles.css', rel='stylesheet')
+
+    body#page-top.planner-page
+        script.
+            window.companyInfo = !{JSON.stringify(companyInfo)};
+
+        nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink
+            .container
+                a.navbar-brand(href='index.html#home', aria-label=companyInfo.name)
+                    span.navbar-logo-frame
+                        img.navbar-logo(src=navLogoImage, width='40', height='40', alt=`${companyInfo.name}标志`)
+                    span.brand-mark 敏祥吊装
+                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='展开导航')
+                    | 导航
+                    i.fas.fa-bars.ms-2
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto.py-4.py-lg-0
+                        li.nav-item
+                            a.nav-link(href='index.html#home') 首页
+                        li.nav-item
+                            a.nav-link(href='#planner') 吊装选型
+                        li.nav-item
+                            a.nav-link(href='#equipment-parameters') 设备参数
+                        li.nav-item
+                            a.nav-link(href='index.html#portfolio') 工程案例
+                        li.nav-item
+                            a.nav-link(href='#contact') 联系我们
+
+        header.planner-hero
+            .planner-hero-overlay
+            .container
+                .row.align-items-center
+                    .col-lg-9
+                        .masthead-kicker 重庆敏祥吊装
+                        h1 吊装选型初算
+                        p 输入吊重、作业高度和作业半径，先得到一个用于沟通的起重机吨位建议。正式吊装方案仍需结合设备工况表、现场地基、支腿或履带站位、障碍物、索具和天气复核。
+                        .hero-contact
+                            .hero-phone
+                                span 联系唐经理复核方案
+                                strong= companyInfo.primaryPhone
+                                small 备用：#{companyInfo.secondaryPhone} · 微信电话同号
+                            +consultButtons('hero-actions')
+
+        section#planner.page-section.lifting-planner
+            .container
+                .text-center.section-intro
+                    h2.section-heading 起重机吨位初步选择
+                    h3.section-subheading.text-muted 客户可先填写三个关键数据，页面会生成建议沟通吨位和一段可直接复制给经理的需求说明。
+                .row.g-4.align-items-stretch
+                    .col-lg-7
+                        form#liftingPlannerForm.planner-card
+                            .row.g-3
+                                .col-md-4
+                                    label.form-label(for='liftLoad') 吊装物重量
+                                    .input-group
+                                        input#liftLoad.form-control(type='number', min='0.1', step='0.1', placeholder='例如 18', required)
+                                        span.input-group-text 吨
+                                .col-md-4
+                                    label.form-label(for='liftHeight') 作业高度
+                                    .input-group
+                                        input#liftHeight.form-control(type='number', min='1', step='0.5', placeholder='例如 16', required)
+                                        span.input-group-text 米
+                                .col-md-4
+                                    label.form-label(for='liftRadius') 作业半径/距离
+                                    .input-group
+                                        input#liftRadius.form-control(type='number', min='1', step='0.5', placeholder='例如 10', required)
+                                        span.input-group-text 米
+                                .col-md-6
+                                    label.form-label(for='liftCondition') 现场条件
+                                    select#liftCondition.form-select
+                                        option(value='normal') 场地较平整，站位空间正常
+                                        option(value='limited') 站位受限或有障碍物
+                                        option(value='rough') 地面承载不确定/工况复杂
+                                        option(value='long') 长距离或高空作业偏多
+                                .col-md-6
+                                    label.form-label(for='liftType') 倾向设备
+                                    select#liftType.form-select
+                                        option(value='auto') 自动判断
+                                        option(value='truck') 汽车式起重机
+                                        option(value='crawler') 履带式起重机
+                                .col-12
+                                    label.form-label(for='liftNotes') 补充信息
+                                    textarea#liftNotes.form-control(rows='4', placeholder='例如：设备尺寸、作业地点、是否越过厂房/围墙、预计使用时间、是否方便吊车进场')
+                                .col-12
+                                    .planner-warning
+                                        strong 提醒：
+                                        | 这里输出的是沟通用的初步建议，不等同于正式吊装方案。最终吨位需由现场人员按设备工况表和安全要求复核。
+                                .col-12
+                                    button.btn.btn-primary.btn-xl(type='submit')
+                                        i.fas.fa-calculator.me-2
+                                        | 生成初步建议
+                                    a.btn.btn-outline-secondary.btn-xl.ms-md-2.mt-2.mt-md-0(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')
+                                        i.fas.fa-phone.me-2
+                                        | 直接电话复核
+                    .col-lg-5
+                        #liftingResult.planner-result
+                            .result-empty
+                                i.fas.fa-compass-drafting
+                                h3 等待输入参数
+                                p 填写吊重、高度和距离后，会显示建议沟通吨位、设备类型和可复制的咨询文字。
+
+        section#equipment-parameters.page-section.bg-light
+            .container
+                .text-center.section-intro
+                    h2.section-heading 设备参数汇总
+                    h3.section-subheading.text-muted 先按吨位和设备类型展示，后续可继续补充具体型号、主臂长度、副臂、配重和工况表。
+                .row.g-4
+                    .col-lg-6
+                        .parameter-table-panel
+                            h3 汽车式起重机
+                            .table-responsive
+                                table.table.parameter-table
+                                    thead
+                                        tr
+                                            th 设备吨位
+                                            th 适合沟通的常见工况
+                                    tbody
+                                        each item in truckCranes
+                                            tr
+                                                td= item[0]
+                                                td= item[1]
+                    .col-lg-6
+                        .parameter-table-panel
+                            h3 履带式起重机
+                            .table-responsive
+                                table.table.parameter-table
+                                    thead
+                                        tr
+                                            th 设备吨位
+                                            th 适合沟通的常见工况
+                                    tbody
+                                        each item in crawlerCranes
+                                            tr
+                                                td= item[0]
+                                                td= item[1]
+                .consult-note.mt-4
+                    strong 参数还可以继续细化：
+                    | 后续拿到每台车的具体型号和工况表后，可以把主臂长度、作业半径、额定起重量、配重、支腿尺寸、履带接地比压等信息补充进来。
+
+        section#contact.page-section
+            .container
+                .text-center
+                    h2.section-heading 联系我们
+                    h3.section-subheading 需要复核吊装方案或确认起重机吨位，欢迎直接电话或微信联系唐经理。
+                .row.g-4.align-items-stretch
+                    .col-lg-7
+                        .contact-panel.h-100
+                            h3= companyInfo.name
+                            dl.contact-list
+                                dt 联系人
+                                dd= companyInfo.contactPerson
+                                dt 电话
+                                dd
+                                    a.contact-number(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
+                                    span.mx-2 /
+                                    a.contact-number.secondary(href=`tel:${companyInfo.secondaryPhone}`, data-consult='phone-secondary')= companyInfo.secondaryPhone
+                                dt 微信
+                                dd
+                                    a.contact-number.wechat-number(href='#contact', data-copy-text=companyInfo.wechatPrimary, data-copy-label='微信号')= companyInfo.wechatPrimary
+                                    span.mx-2 /
+                                    a.contact-number.secondary.wechat-number(href='#contact', data-copy-text=companyInfo.wechatSecondary, data-copy-label='微信号')= companyInfo.wechatSecondary
+                                    span.ms-2= companyInfo.wechatNote
+                                dt 地址
+                                dd= companyInfo.address
+                                dt 服务区域
+                                dd= companyInfo.serviceArea
+                            +consultButtons('dark-actions')
+                    .col-lg-5
+                        .qrcode-card.h-100#wechat-qrcode
+                            img(src=companyInfo.qrcode, alt='重庆敏祥吊装微信二维码')
+                            h3 微信扫码咨询
+                            p 微信电话同号，添加时可备注“吊装选型”。
+                            .qrcode-phone= companyInfo.wechatPrimary
+
+        footer.footer.py-4
+            .container
+                .row.align-items-center
+                    .col-lg-6.text-lg-start
+                        | Copyright &copy; #{companyInfo.name} 2026
+                    .col-lg-6.text-lg-end
+                        | 服务渝贵川及周边区县
+
+        .mobile-consult-bar
+            a.mobile-consult-btn.phone(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')
+                i.fas.fa-phone
+                span 电话咨询
+            a.mobile-consult-btn.wechat(href='#contact', data-consult='wechat')
+                i.fab.fa-weixin
+                span 微信咨询
+
+        #consultToast.consult-toast(role='status', aria-live='polite')
+
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+        script(src='js/scripts.js')

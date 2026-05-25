@@ -49,7 +49,7 @@
         ]
     };
     const crawlerCranes = ["55吨", "75吨", "100吨", "135吨", "150吨", "200吨", "280吨", "320吨", "400吨", "500吨"];
-    const truckCranes = ["25吨伸缩臂", "55吨", "75吨", "100吨", "135吨", "150吨", "200吨", "280吨", "320吨", "400吨", "500吨"];
+    const truckCranes = ["25吨", "55吨", "75吨", "100吨", "135吨", "150吨", "200吨", "280吨", "320吨", "400吨", "500吨"];
     const portfolioItems = [
         {
             id: 1,
@@ -186,7 +186,7 @@ html(lang='zh-CN')
                         li.nav-item
                             a.nav-link(href='#truck-crane') 汽车式起重机
                         li.nav-item
-                            a.nav-link(href='#lifting-parameters') 起重参数
+                            a.nav-link(href='lifting-plan.html') 吊装选型
                         li.nav-item
                             a.nav-link(href='#portfolio') 工程案例
                         li.nav-item
@@ -216,6 +216,9 @@ html(lang='zh-CN')
                             a.btn.btn-outline-light.btn-xl(href='#crawler-crane')
                                 i.fas.fa-list-check.me-2
                                 | 查看设备吨位
+                            a.btn.btn-primary.btn-xl(href='lifting-plan.html')
+                                i.fas.fa-calculator.me-2
+                                | 吊装选型初算
 
         // 履带式起重机租赁
         section#crawler-crane.page-section
@@ -243,7 +246,7 @@ html(lang='zh-CN')
             .container
                 .section-intro.text-center
                     h2.section-heading 重庆吊车出租 · 汽车式起重机租赁
-                    h3.section-subheading.text-muted 重庆吊车通常指汽车式起重机、汽车吊等现场常用设备。提供25吨伸缩臂起重机，以及55吨至500吨多种吨位汽车式起重机。
+                    h3.section-subheading.text-muted 重庆吊车通常指汽车式起重机、汽车吊等现场常用设备。提供25吨至500吨多种吨位汽车式起重机。
                 .equipment-feature.row.align-items-center.mb-5
                     .col-lg-5.mb-4.mb-lg-0
                         img.img-fluid.feature-img(src='assets/img/equipment/truck-crane.jpg', alt='重庆吊车出租汽车式起重机作业现场')
@@ -254,10 +257,7 @@ html(lang='zh-CN')
                             +consultButtons('dark-actions')
                 .row
                     each ton in truckCranes
-                        if ton === "25吨伸缩臂"
-                            +equipmentCard('25吨伸缩臂起重机租赁', '25吨起重机租赁')
-                        else
-                            +equipmentCard(`${ton}汽车式起重机租赁`, `${ton}起重机租赁`)
+                        +equipmentCard(`${ton}汽车式起重机租赁`, `${ton}起重机租赁`)
                 .consult-note.mt-4
                     strong 不确定需要多大吨位？
                     | 直接联系唐经理，说明吊装物重量、尺寸、作业地点和现场环境，我们协助沟通合适设备。
@@ -267,12 +267,15 @@ html(lang='zh-CN')
             .container
                 .row.align-items-center
                     .col-lg-7
-                        h2.section-heading 起重参数
-                        p.section-subheading.text-muted 不同吨位、不同工况的起重能力差异较大，具体参数建议直接联系唐经理确认。
+                        h2.section-heading 吊装选型与起重参数
+                        p.section-subheading.text-muted 客户可先提供吊重、作业高度和作业半径，生成一份用于沟通的初步吨位建议。
                         .parameters-box
-                            p 起重参数资料后续补充。如果您不确定需要多大吨位的履带式起重机或汽车式起重机，请直接电话或微信联系唐经理。
-                            p 沟通时可简单说明：吊装物重量、尺寸、作业地点、作业高度、现场环境和使用时间。
-                            p.mb-0 重庆履带吊和重庆吊车的起重参数、履带式起重机参数、汽车式起重机参数、起重性能表和起重机工况表，均建议结合现场情况确认。
+                            p 已新增吊装选型初算页面，汇总汽车式起重机、履带式起重机吨位，并可根据吊重、高度、距离整理初步咨询方案。
+                            p 沟通时建议说明：吊装物重量、尺寸、作业地点、作业高度、作业半径、现场环境和使用时间。
+                            p.mb-0 页面输出只作为初步沟通参考，最终仍需结合起重机工况表、现场站位、地基承载、索具和安全要求复核。
+                            a.btn.btn-primary.mt-3(href='lifting-plan.html')
+                                i.fas.fa-calculator.me-2
+                                | 打开吊装选型初算
                     .col-lg-5.mt-4.mt-lg-0
                         .contact-panel.compact
                             h3 参数不确定？

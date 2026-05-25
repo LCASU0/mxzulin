@@ -11526,6 +11526,139 @@ header.masthead .hero-phone strong {
   padding: 1.35rem;
 }
 
+.planner-page {
+  background-color: #fff;
+}
+
+.planner-hero {
+  position: relative;
+  min-height: 30rem;
+  padding: 8.5rem 0 4rem;
+  color: #fff;
+  background-image: linear-gradient(90deg, rgba(21, 25, 29, 0.92), rgba(21, 25, 29, 0.58)), url("../assets/img/hero/hero-crane.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.planner-hero h1, .planner-hero .h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 4.25rem);
+  line-height: 1.1;
+}
+.planner-hero p {
+  max-width: 48rem;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.12rem;
+}
+.planner-hero .hero-contact {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.lifting-planner {
+  background-color: #fff;
+}
+
+.planner-card,
+.planner-result,
+.parameter-table-panel {
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(33, 37, 41, 0.1);
+  border-radius: 0.35rem;
+  background-color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+}
+
+.planner-card .form-label {
+  color: #212529;
+  font-weight: 800;
+}
+.planner-card .form-control,
+.planner-card .form-select {
+  min-height: 3rem;
+  border-radius: 0.25rem;
+}
+
+.planner-warning {
+  padding: 0.9rem 1rem;
+  border-left: 0.3rem solid #f5b316;
+  background-color: rgba(245, 179, 22, 0.12);
+  color: #212529;
+}
+
+.planner-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 28rem;
+  background-color: #f6f7f4;
+}
+.planner-result.has-result {
+  justify-content: flex-start;
+}
+.planner-result h3, .planner-result .h3 {
+  color: #1f6f5b;
+  font-size: 1.65rem;
+}
+
+.result-empty {
+  text-align: center;
+}
+.result-empty svg,
+.result-empty i {
+  margin-bottom: 1rem;
+  color: #f5b316;
+  font-size: 3rem;
+}
+.result-empty p {
+  margin-bottom: 0;
+  color: #6c757d;
+}
+
+.result-label {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  background-color: rgba(31, 111, 91, 0.12);
+  color: #1f6f5b;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.result-checklist {
+  margin-bottom: 1rem;
+  padding-left: 1.15rem;
+}
+
+.result-copy {
+  resize: vertical;
+  background-color: #fff;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.parameter-table-panel h3, .parameter-table-panel .h3 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.parameter-table {
+  margin-bottom: 0;
+}
+.parameter-table th {
+  color: #212529;
+  white-space: nowrap;
+}
+.parameter-table td {
+  vertical-align: middle;
+}
+
 .contact-panel {
   padding: 2rem;
   border-radius: 0.35rem;
@@ -11713,6 +11846,18 @@ section#contact .contact-panel {
   }
   .consult-toast {
     bottom: 4.8rem;
+  }
+  .planner-hero {
+    min-height: auto;
+    padding: 7rem 0 3rem;
+  }
+  .planner-hero h1, .planner-hero .h1 {
+    font-size: 2.25rem;
+  }
+  .planner-card,
+  .planner-result,
+  .parameter-table-panel {
+    padding: 1.15rem;
   }
 }
 .footer {

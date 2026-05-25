@@ -10826,7 +10826,7 @@ textarea.form-control-lg {
   }
 }
 html {
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 5.75rem;
 }
 
 body {
@@ -11528,12 +11528,16 @@ header.masthead .hero-phone strong {
 
 .planner-page {
   background-color: #fff;
+  padding-top: 5.75rem;
+}
+.planner-page .page-section {
+  scroll-margin-top: 5.75rem;
 }
 
 .planner-hero {
   position: relative;
-  min-height: 30rem;
-  padding: 8.5rem 0 4rem;
+  min-height: 25rem;
+  padding: 4rem 0;
   color: #fff;
   background-image: linear-gradient(90deg, rgba(21, 25, 29, 0.92), rgba(21, 25, 29, 0.58)), url("../assets/img/hero/hero-crane.jpg");
   background-size: cover;
@@ -11849,7 +11853,7 @@ section#contact .contact-panel {
   }
   .planner-hero {
     min-height: auto;
-    padding: 7rem 0 3rem;
+    padding: 3.25rem 0 3rem;
   }
   .planner-hero h1, .planner-hero .h1 {
     font-size: 2.25rem;

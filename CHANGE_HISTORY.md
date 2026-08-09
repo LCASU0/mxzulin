@@ -29,4 +29,5 @@
 | 2026-08-10 | 部署 | GitHub Actions、Cloudflare Pages、`mxzulin.com` | 推送 `96511ee` 并完成 Cloudflare Pages 自动发布；生产域名、自定义域名和证书状态正常。 | Actions `31327780396` 成功；12 个页面均返回 200；`www` 301 到根域名 | 已部署 |
 | 2026-08-10 | SEO 线上验证 | robots、sitemap、百度/搜狗/360 爬虫访问 | 生产 sitemap 已包含 12 个 URL；robots 返回 200 并声明正式 sitemap；Baiduspider、Sogou web spider、360Spider 均可获取首页。 | 生产 HTTP 与 User-Agent 请求检查 | 已验证 |
 | 2026-08-10 | SEO 平台验证 | 百度、搜狗、360 站长平台 | 三个平台均要求登录后才能添加、验证站点和提交 sitemap；当前浏览器没有对应登录状态，因此未伪造“已提交”结果。 | 官方站点管理和登录页面检查 | 待账号登录 |
-| 2026-08-10 | SEO URL 规范 | canonical、sitemap、站内链接 | 生产验证发现 Cloudflare Pages 会将 `.html` 永久重定向到无后缀 URL；统一改用最终返回 200 的无后缀地址，在首页补充 10 个真实落地页文本内链，并统一首页 canonical 与 sitemap 的根路径斜杠。 | 生产 308/200 响应、canonical 与 sitemap 对照检查 | 修复待部署 |
+| 2026-08-10 | SEO URL 规范 | canonical、sitemap、站内链接 | 生产验证发现 Cloudflare Pages 会将 `.html` 永久重定向到无后缀 URL；统一改用最终返回 200 的无后缀地址，在首页补充 10 个真实落地页文本内链，并统一首页 canonical 与 sitemap 的根路径斜杠。 | 12 个 sitemap URL 全部返回 200；canonical 全部匹配；旧 `.html` 返回 308 | 已部署：`5b3aaba`；Actions `31329223448` |
+| 2026-08-10 | SEO 生产验收 | `mxzulin.com`、Cloudflare Pages | 验证正式域名、Cloudflare 预览地址、robots、sitemap、`www` 跳转以及 Baiduspider、Sogou web spider、360Spider 访问状态。 | 正式与预览首页 200；robots 200；`www` 301；三类爬虫均 200 | 已验证 |

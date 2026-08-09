@@ -1,0 +1,308 @@
+
+//
+// SEO landing pages
+//
+
+.seo-landing-page {
+    background-color: #f6f7f4;
+}
+
+.seo-masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: 8.75rem;
+    padding-bottom: 4rem;
+    color: $white;
+    background-image: var(--seo-hero-image);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    .seo-masthead-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(90deg, rgba(21, 25, 29, 0.95), rgba(21, 25, 29, 0.76) 52%, rgba(21, 25, 29, 0.58)),
+            repeating-linear-gradient(135deg, rgba(245, 179, 22, 0.08) 0, rgba(245, 179, 22, 0.08) 1px, transparent 1px, transparent 12px);
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .seo-breadcrumb {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        color: rgba($white, 0.72);
+        font-size: 0.92rem;
+
+        a {
+            color: $primary;
+            text-decoration: none;
+
+            &:hover {
+                color: lighten($primary, 10%);
+            }
+        }
+    }
+
+    .masthead-kicker {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.4rem 0.75rem;
+        border: 1px solid rgba($white, 0.25);
+        background: rgba($gray-950, 0.55);
+        color: $primary;
+        font-weight: 700;
+    }
+
+    .masthead-heading {
+        max-width: 48rem;
+        margin-bottom: 1.2rem;
+        font-size: 2.6rem;
+        line-height: 1.2;
+        font-weight: 800;
+        font-family: $headings-font-family;
+    }
+
+    .masthead-subheading {
+        max-width: 48rem;
+        margin-bottom: 1.4rem;
+        color: rgba($white, 0.88);
+        font-size: 1.06rem;
+        line-height: 1.85;
+    }
+
+    .seo-keyword-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2rem;
+            padding: 0.3rem 0.65rem;
+            border: 1px solid rgba($primary, 0.45);
+            background-color: rgba($gray-950, 0.5);
+            color: rgba($white, 0.92);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.seo-hero-contact,
+.seo-quick-panel {
+    border: 1px solid rgba($white, 0.18);
+    border-left: 0.35rem solid $primary;
+    background: rgba(21, 25, 29, 0.74);
+    box-shadow: 0 1rem 2rem rgba($black, 0.18);
+}
+
+.seo-hero-contact {
+    width: min(100%, 38rem);
+    padding: 1rem;
+
+    .hero-phone {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        margin-bottom: 0.9rem;
+
+        span,
+        small {
+            color: rgba($white, 0.78);
+        }
+
+        strong {
+            color: $primary;
+            font-size: 1.85rem;
+            line-height: 1.15;
+        }
+    }
+}
+
+.seo-quick-panel {
+    padding: 1.5rem;
+
+    h2 {
+        color: $white;
+        font-size: 1.45rem;
+    }
+
+    p,
+    small {
+        color: rgba($white, 0.76);
+    }
+
+    .quick-phone {
+        display: block;
+        color: $primary;
+        font-size: 1.85rem;
+        font-weight: 800;
+        text-decoration: none;
+    }
+}
+
+.seo-content {
+    .feature-img {
+        width: 100%;
+        min-height: 20rem;
+        object-fit: cover;
+        border-radius: 0.35rem;
+        box-shadow: 0 1rem 2rem rgba($black, 0.12);
+    }
+}
+
+.seo-check-list {
+    display: grid;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        gap: 0.65rem;
+        align-items: flex-start;
+        padding: 0.85rem 1rem;
+        background: $white;
+        border-left: 0.25rem solid $primary;
+        box-shadow: 0 0.5rem 1rem rgba($black, 0.05);
+    }
+
+    svg,
+    i {
+        color: $secondary;
+        margin-top: 0.25rem;
+    }
+}
+
+.seo-equipment-group {
+    margin-bottom: 1.5rem;
+
+    > h3 {
+        margin-bottom: 1rem;
+        font-size: 1.35rem;
+    }
+}
+
+.seo-prep-section {
+    background-color: $white;
+}
+
+.seo-prep-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.seo-prep-item {
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba($gray-900, 0.1);
+    border-left: 0.3rem solid $primary;
+    background: #f6f7f4;
+    font-weight: 700;
+}
+
+.seo-faq-card,
+.seo-related-card {
+    height: 100%;
+    border-radius: 0.35rem;
+    background-color: $white;
+    box-shadow: 0 0.6rem 1.5rem rgba($black, 0.06);
+}
+
+.seo-faq-card {
+    padding: 1.35rem;
+
+    h3 {
+        font-size: 1.18rem;
+    }
+
+    p {
+        margin-bottom: 0;
+        color: $gray-700;
+    }
+}
+
+.seo-entry-section,
+.seo-related-section {
+    background-color: #f6f7f4;
+}
+
+.seo-related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem;
+    color: $gray-900;
+    text-decoration: none;
+    border: 1px solid rgba($gray-900, 0.08);
+    border-left: 0.3rem solid $primary;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    strong {
+        font-size: 1.05rem;
+    }
+
+    span,
+    small {
+        color: $gray-600;
+    }
+
+    .seo-related-keyword {
+        color: $secondary;
+        font-size: 0.88rem;
+        font-weight: 800;
+    }
+
+    &:hover {
+        color: $gray-900;
+        transform: translateY(-0.15rem);
+        border-color: rgba($secondary, 0.35);
+        box-shadow: 0 0.8rem 1.8rem rgba($black, 0.1);
+    }
+}
+
+.footer-link {
+    color: $secondary;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($secondary, 8%);
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .seo-masthead {
+        padding-top: 6.75rem;
+        padding-bottom: 2.75rem;
+
+        .masthead-heading {
+            font-size: 1.85rem;
+        }
+
+        .masthead-subheading {
+            font-size: 1rem;
+        }
+    }
+
+    .seo-quick-panel {
+        padding: 1.1rem;
+    }
+
+    .seo-content .feature-img {
+        min-height: 13rem;
+    }
+
+    .seo-prep-grid {
+        grid-template-columns: 1fr;
+    }
+}

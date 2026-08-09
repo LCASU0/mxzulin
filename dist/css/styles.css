@@ -11646,6 +11646,278 @@ header.masthead .hero-phone strong {
     padding: 1.15rem;
   }
 }
+.seo-landing-page {
+  background-color: #f6f7f4;
+}
+
+.seo-masthead {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8.75rem;
+  padding-bottom: 4rem;
+  color: #fff;
+  background-image: var(--seo-hero-image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.seo-masthead .seo-masthead-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(21, 25, 29, 0.95), rgba(21, 25, 29, 0.76) 52%, rgba(21, 25, 29, 0.58)), repeating-linear-gradient(135deg, rgba(245, 179, 22, 0.08) 0, rgba(245, 179, 22, 0.08) 1px, transparent 1px, transparent 12px);
+}
+.seo-masthead .container {
+  position: relative;
+  z-index: 1;
+}
+.seo-masthead .seo-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+.seo-masthead .seo-breadcrumb a {
+  color: #f5b316;
+  text-decoration: none;
+}
+.seo-masthead .seo-breadcrumb a:hover {
+  color: #f7c347;
+}
+.seo-masthead .masthead-kicker {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(21, 25, 29, 0.55);
+  color: #f5b316;
+  font-weight: 700;
+}
+.seo-masthead .masthead-heading {
+  max-width: 48rem;
+  margin-bottom: 1.2rem;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  font-weight: 800;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.seo-masthead .masthead-subheading {
+  max-width: 48rem;
+  margin-bottom: 1.4rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.06rem;
+  line-height: 1.85;
+}
+.seo-masthead .seo-keyword-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.seo-masthead .seo-keyword-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(245, 179, 22, 0.45);
+  background-color: rgba(21, 25, 29, 0.5);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.seo-hero-contact,
+.seo-quick-panel {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 0.35rem solid #f5b316;
+  background: rgba(21, 25, 29, 0.74);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.18);
+}
+
+.seo-hero-contact {
+  width: min(100%, 38rem);
+  padding: 1rem;
+}
+.seo-hero-contact .hero-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.9rem;
+}
+.seo-hero-contact .hero-phone span,
+.seo-hero-contact .hero-phone small,
+.seo-hero-contact .hero-phone .small {
+  color: rgba(255, 255, 255, 0.78);
+}
+.seo-hero-contact .hero-phone strong {
+  color: #f5b316;
+  font-size: 1.85rem;
+  line-height: 1.15;
+}
+
+.seo-quick-panel {
+  padding: 1.5rem;
+}
+.seo-quick-panel h2, .seo-quick-panel .h2 {
+  color: #fff;
+  font-size: 1.45rem;
+}
+.seo-quick-panel p,
+.seo-quick-panel small,
+.seo-quick-panel .small {
+  color: rgba(255, 255, 255, 0.76);
+}
+.seo-quick-panel .quick-phone {
+  display: block;
+  color: #f5b316;
+  font-size: 1.85rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.seo-content .feature-img {
+  width: 100%;
+  min-height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.35rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+}
+
+.seo-check-list {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  list-style: none;
+}
+.seo-check-list li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border-left: 0.25rem solid #f5b316;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+.seo-check-list svg,
+.seo-check-list i {
+  color: #1f6f5b;
+  margin-top: 0.25rem;
+}
+
+.seo-equipment-group {
+  margin-bottom: 1.5rem;
+}
+.seo-equipment-group > h3, .seo-equipment-group > .h3 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.seo-prep-section {
+  background-color: #fff;
+}
+
+.seo-prep-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.seo-prep-item {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(33, 37, 41, 0.1);
+  border-left: 0.3rem solid #f5b316;
+  background: #f6f7f4;
+  font-weight: 700;
+}
+
+.seo-faq-card,
+.seo-related-card {
+  height: 100%;
+  border-radius: 0.35rem;
+  background-color: #fff;
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.06);
+}
+
+.seo-faq-card {
+  padding: 1.35rem;
+}
+.seo-faq-card h3, .seo-faq-card .h3 {
+  font-size: 1.18rem;
+}
+.seo-faq-card p {
+  margin-bottom: 0;
+  color: #495057;
+}
+
+.seo-entry-section,
+.seo-related-section {
+  background-color: #f6f7f4;
+}
+
+.seo-related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  color: #212529;
+  text-decoration: none;
+  border: 1px solid rgba(33, 37, 41, 0.08);
+  border-left: 0.3rem solid #f5b316;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.seo-related-card strong {
+  font-size: 1.05rem;
+}
+.seo-related-card span,
+.seo-related-card small,
+.seo-related-card .small {
+  color: #6c757d;
+}
+.seo-related-card .seo-related-keyword {
+  color: #1f6f5b;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+.seo-related-card:hover {
+  color: #212529;
+  transform: translateY(-0.15rem);
+  border-color: rgba(31, 111, 91, 0.35);
+  box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.1);
+}
+
+.footer-link {
+  color: #1f6f5b;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: #164f41;
+}
+
+@media (max-width: 767.98px) {
+  .seo-masthead {
+    padding-top: 6.75rem;
+    padding-bottom: 2.75rem;
+  }
+  .seo-masthead .masthead-heading {
+    font-size: 1.85rem;
+  }
+  .seo-masthead .masthead-subheading {
+    font-size: 1rem;
+  }
+  .seo-quick-panel {
+    padding: 1.1rem;
+  }
+  .seo-content .feature-img {
+    min-height: 13rem;
+  }
+  .seo-prep-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .equipment-feature .feature-img {
   width: 100%;
   min-height: 18rem;

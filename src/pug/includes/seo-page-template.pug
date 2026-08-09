@@ -1,0 +1,320 @@
+-
+    const companyInfo = {
+        name: "重庆敏祥吊装租赁责任有限公司",
+        contactPerson: "唐经理",
+        primaryPhone: "13752931757",
+        secondaryPhone: "13752981786",
+        wechatPrimary: "13752931757",
+        wechatSecondary: "13752981786",
+        wechatNote: "微信电话同号",
+        address: "重庆市大渡口区",
+        serviceArea: "渝贵川及周边区县",
+        qrcode: "assets/img/contact/wechat-qrcode.jpg"
+    };
+    const siteUrl = "https://mxzulin.com";
+    const pageUrl = `${siteUrl}${page.path}`;
+    const navLogoImage = "assets/img/logo-nav.png";
+    const faviconImage = "assets/img/logo-favicon.png";
+    const socialImage = `${siteUrl}/assets/img/logo-social.png`;
+    const defaultRelatedLinks = [
+        { title: "重庆履带吊租赁", url: "chongqing-lvdaidiao.html", text: "了解重庆履带吊租赁服务" },
+        { title: "履带吊租赁", url: "lvdaidiao-zulin.html", text: "查看履带式起重机租赁入口" },
+        { title: "四川履带吊租赁", url: "sichuan-lvdaidiao.html", text: "查看四川区域履带吊咨询" },
+        { title: "重庆吊车出租", url: "chongqing-diaoche-chuzu.html", text: "查看汽车式起重机租赁入口" }
+    ];
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": companyInfo.name,
+        "description": page.description,
+        "url": pageUrl,
+        "logo": `${siteUrl}/assets/img/logo-dark.png`,
+        "image": `${siteUrl}/${page.heroImage}`,
+        "telephone": [companyInfo.primaryPhone, companyInfo.secondaryPhone],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "重庆市",
+            "streetAddress": companyInfo.address,
+            "addressCountry": "CN"
+        },
+        "areaServed": page.areas || ["重庆", "四川", "贵州", "渝贵川及周边区县"],
+        "makesOffer": [{
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": page.h1
+            }
+        }]
+    };
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": siteUrl },
+            { "@type": "ListItem", "position": 2, "name": page.h1, "item": pageUrl }
+        ]
+    };
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": page.h1,
+        "description": page.description,
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": companyInfo.name,
+            "telephone": companyInfo.primaryPhone
+        },
+        "areaServed": page.areas || ["重庆", "四川", "贵州", "渝贵川及周边区县"]
+    };
+
+mixin consultButtons(extraClass)
+    .consult-actions(class=extraClass)
+        a.btn.btn-primary.btn-consult(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')
+            i.fas.fa-phone.me-2
+            | 电话咨询
+        a.btn.btn-outline-light.btn-consult(href='#contact', data-consult='wechat')
+            i.fab.fa-weixin.me-2
+            | 微信咨询
+
+mixin relatedCard(link)
+    .col-md-6.col-lg-3.mb-3
+        a.seo-related-card(href=link.url)
+            strong= link.title
+            span= link.text
+
+doctype html
+html(lang='zh-CN')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name='applicable-device', content='pc,mobile')
+        meta(name='description', content=page.description)
+        meta(name='keywords', content=page.keywords)
+        meta(name='author', content=companyInfo.name)
+        meta(name='robots', content='index,follow')
+        meta(name='Bingbot', content='index,follow')
+        meta(name='Sogou web spider', content='index,follow')
+        meta(property='og:type', content='website')
+        meta(property='og:title', content=page.title)
+        meta(property='og:description', content=page.description)
+        meta(property='og:url', content=pageUrl)
+        meta(property='og:image', content=`${siteUrl}/${page.heroImage}`)
+        meta(property='og:image:alt', content=page.heroAlt)
+        meta(name='twitter:card', content='summary_large_image')
+        meta(name='twitter:image', content=`${siteUrl}/${page.heroImage}`)
+        link(rel='canonical', href=pageUrl)
+        title= page.title
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+        link(rel='icon', type='image/png', sizes='64x64', href=faviconImage)
+        link(rel='apple-touch-icon', sizes='180x180', href='assets/apple-touch-icon.png')
+        script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
+        script(type='application/ld+json')!= JSON.stringify(localBusinessSchema)
+        script(type='application/ld+json')!= JSON.stringify(breadcrumbSchema)
+        script(type='application/ld+json')!= JSON.stringify(serviceSchema)
+        link(href='css/styles.css?v=20260630-seo-pages', rel='stylesheet')
+
+    body#page-top.seo-landing-page
+        script.
+            window.companyInfo = !{JSON.stringify(companyInfo)};
+
+        nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink
+            .container
+                a.navbar-brand(href='index.html#home', aria-label=companyInfo.name)
+                    span.navbar-logo-frame
+                        img.navbar-logo(src=navLogoImage, width='40', height='40', alt=`${companyInfo.name}标志`)
+                    span.brand-mark 敏祥吊装
+                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='展开导航')
+                    | 导航
+                    i.fas.fa-bars.ms-2
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto.py-4.py-lg-0
+                        li.nav-item
+                            a.nav-link(href='index.html#home') 首页
+                        li.nav-item
+                            a.nav-link(href='chongqing-lvdaidiao.html') 重庆履带吊
+                        li.nav-item
+                            a.nav-link(href='lvdaidiao-zulin.html') 履带吊租赁
+                        li.nav-item
+                            a.nav-link(href='chongqing-diaoche-chuzu.html') 重庆吊车出租
+                        li.nav-item
+                            a.nav-link(href='lifting-plan.html') 吊装选型
+                        li.nav-item
+                            a.nav-link(href='#contact') 联系我们
+
+        header.seo-masthead(style=`--seo-hero-image: url('${page.heroImage}')`)
+            .seo-masthead-overlay
+            .container
+                .row.align-items-center
+                    .col-lg-8
+                        nav.seo-breadcrumb(aria-label='当前位置')
+                            a(href='index.html') 首页
+                            span /
+                            span= page.h1
+                        .masthead-kicker= page.kicker
+                        h1.masthead-heading= page.h1
+                        p.masthead-subheading= page.lead
+                        .seo-keyword-row(aria-label='页面关键词')
+                            each tag in page.tags
+                                span= tag
+                        .hero-contact.seo-hero-contact
+                            .hero-phone
+                                span 联系唐经理
+                                strong= companyInfo.primaryPhone
+                                small 备用：#{companyInfo.secondaryPhone} · 微信电话同号
+                            +consultButtons('hero-actions')
+                    .col-lg-4.mt-4.mt-lg-0
+                        .seo-quick-panel
+                            h2 快速咨询
+                            p.mb-3 说明吊装物重量、尺寸、作业地点、作业高度、现场环境和使用时间，可更快沟通合适设备。
+                            a.quick-phone(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
+                            small.d-block.mb-3 备用电话：#{companyInfo.secondaryPhone}
+                            +consultButtons('dark-actions')
+
+        section.page-section.seo-content
+            .container
+                .row.g-4.align-items-center
+                    .col-lg-7
+                        h2.section-heading= page.mainTitle
+                        p.lead= page.mainIntro
+                        ul.seo-check-list
+                            each item in page.highlights
+                                li
+                                    i.fas.fa-check
+                                    span= item
+                        .consult-note.mt-4
+                            strong 咨询建议：
+                            | #{page.consultNote}
+                    .col-lg-5
+                        img.img-fluid.feature-img(src=page.heroImage, alt=page.heroAlt)
+                if page.focusItems && page.focusItems.length
+                    .seo-focus-block.mt-5
+                        .section-intro.text-center
+                            h2.section-heading= page.focusTitle
+                            p.text-muted= page.focusIntro
+                        .row.g-4
+                            each item in page.focusItems
+                                .col-md-6.col-lg-3
+                                    .seo-faq-card.h-100
+                                        h3= item.title
+                                        p= item.text
+
+        if page.equipmentGroups && page.equipmentGroups.length
+            section.page-section.bg-light
+                .container
+                    .section-intro.text-center
+                        h2.section-heading= page.equipmentTitle || '可沟通设备吨位'
+                        h3.section-subheading.text-muted= page.equipmentIntro || '具体起重能力需结合现场作业半径、作业高度、地基条件和设备工况表确认。'
+                    each group in page.equipmentGroups
+                        .seo-equipment-group
+                            h3= group.name
+                            .row
+                                each item in group.items
+                                    .col-sm-6.col-lg-4.col-xl-3.mb-4
+                                        .equipment-card.h-100
+                                            .equipment-card-body
+                                                .equipment-type= group.type
+                                                h4.equipment-title= item.name
+                                                p.equipment-note= item.note
+                                            .equipment-card-actions
+                                                a.btn.btn-sm.btn-primary(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone') 电话咨询
+                                                a.btn.btn-sm.btn-outline-secondary(href='#contact', data-consult='wechat') 微信咨询
+
+        section.page-section.seo-prep-section
+            .container
+                .row.g-4
+                    .col-lg-6
+                        h2.section-heading 咨询前可准备的信息
+                        p.text-muted.mb-4 不需要填写表单，电话或微信沟通即可。准备的信息越清楚，吨位和设备沟通越快。
+                        .seo-prep-grid
+                            each item in ['吊装物重量', '吊装物尺寸', '作业地点', '作业高度', '作业半径', '现场环境']
+                                .seo-prep-item= item
+                    .col-lg-6
+                        .contact-panel.compact
+                            h3 不确定需要多大吨位？
+                            p= page.selectionText
+                            a.panel-phone(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
+                            +consultButtons('dark-actions')
+
+        if page.faqs && page.faqs.length
+            section.page-section.bg-light
+                .container
+                    .section-intro.text-center
+                        h2.section-heading 常见问题
+                        h3.section-subheading.text-muted 围绕#{page.h1}的常见咨询，具体仍以电话或微信沟通为准。
+                    .row.g-4
+                        each faq in page.faqs
+                            .col-md-6
+                                .seo-faq-card.h-100
+                                    h3= faq.q
+                                    p= faq.a
+
+        section.page-section.seo-related-section
+            .container
+                .section-intro.text-center
+                    h2.section-heading 相关咨询入口
+                    h3.section-subheading.text-muted 按常见搜索词和设备吨位设置真实页面，方便客户快速找到对应服务。
+                .row
+                    each link in (page.relatedLinks || defaultRelatedLinks)
+                        +relatedCard(link)
+
+        section#contact.page-section
+            .container
+                .text-center
+                    h2.section-heading 联系我们
+                    h3.section-subheading 需要#{page.h1}、起重机租赁或设备吊装？欢迎直接电话或微信联系唐经理。
+                .row.g-4.align-items-stretch
+                    .col-lg-7
+                        .contact-panel.h-100
+                            h3= companyInfo.name
+                            dl.contact-list
+                                dt 联系人
+                                dd= companyInfo.contactPerson
+                                dt 电话
+                                dd
+                                    a.contact-number(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')= companyInfo.primaryPhone
+                                    span.mx-2 /
+                                    a.contact-number.secondary(href=`tel:${companyInfo.secondaryPhone}`, data-consult='phone-secondary')= companyInfo.secondaryPhone
+                                dt 微信
+                                dd
+                                    a.contact-number.wechat-number(href='#contact', data-copy-text=companyInfo.wechatPrimary, data-copy-label='微信号')= companyInfo.wechatPrimary
+                                    span.mx-2 /
+                                    a.contact-number.secondary.wechat-number(href='#contact', data-copy-text=companyInfo.wechatSecondary, data-copy-label='微信号')= companyInfo.wechatSecondary
+                                    span.ms-2= companyInfo.wechatNote
+                                dt 地址
+                                dd= companyInfo.address
+                                dt 服务区域
+                                dd= companyInfo.serviceArea
+                            +consultButtons('dark-actions')
+                            .contact-tip
+                                strong 沟通提示：
+                                | 可简单说明吊装物重量、尺寸、作业地点、作业高度、现场环境和使用时间，我们会根据实际情况沟通合适设备。
+                    .col-lg-5
+                        .qrcode-card.h-100#wechat-qrcode
+                            img(src=companyInfo.qrcode, alt='重庆敏祥吊装租赁责任有限公司微信二维码')
+                            h3 微信扫码咨询
+                            p 已复制手机号后，请打开微信搜索手机号添加好友。#{companyInfo.wechatNote}。
+                            .qrcode-phone= companyInfo.wechatPrimary
+
+        footer.footer.py-4
+            .container
+                .row.align-items-center
+                    .col-lg-6.text-lg-start
+                        | Copyright &copy; #{companyInfo.name} 2026
+                    .col-lg-6.text-lg-end
+                        a.footer-link(href='index.html') 返回首页
+                        span.mx-2 ·
+                        | 致力服务于渝贵川及周边区县
+
+        .mobile-consult-bar
+            a.mobile-consult-btn.phone(href=`tel:${companyInfo.primaryPhone}`, data-consult='phone')
+                i.fas.fa-phone
+                span 电话咨询
+            a.mobile-consult-btn.wechat(href='#contact', data-consult='wechat')
+                i.fab.fa-weixin
+                span 微信咨询
+
+        #consultToast.consult-toast(role='status', aria-live='polite')
+
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+        script(src='js/scripts.js?v=20260524-contact')

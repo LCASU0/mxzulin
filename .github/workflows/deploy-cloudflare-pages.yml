@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -92,3 +94,15 @@ jobs:
             -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
             -H "Content-Type: application/json" \
             --data "{\"name\":\"${DOMAIN}\"}"
+
+      - name: Submit deployed URLs to Baidu
+        continue-on-error: true
+        env:
+          BAIDU_SITE: ${{ vars.BAIDU_SITE }}
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+        run: |
+          if [ -z "$BAIDU_SITE" ] || [ -z "$BAIDU_TOKEN" ]; then
+            echo "BAIDU_SITE or BAIDU_TOKEN is not configured; skipping Baidu submission."
+            exit 0
+          fi
+          node scripts/submit-baidu.js

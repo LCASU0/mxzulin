@@ -6,9 +6,9 @@
 
 ## 需求文档
 
-当前官网需求统一记录在 [`REQUIREMENTS.md`](./REQUIREMENTS.md)。
+当前官网需求统一记录在 [`REQUIREMENTS.md`](./REQUIREMENTS.md)。实际代码、部署和 SEO 变更记录在 [`CHANGE_HISTORY.md`](./CHANGE_HISTORY.md)，搜索引擎验证与提交步骤记录在 [`SEARCH_ENGINE_SUBMISSION.md`](./SEARCH_ENGINE_SUBMISSION.md)。
 
-以后公司信息、联系方式、SEO、页面结构、logo、域名或部署策略发生变化时，需要同步更新该文件。
+以后公司信息、联系方式、SEO、页面结构、logo、域名或部署策略发生变化时，需要同步更新需求文档；前端、服务端脚本、构建、部署、DNS 或 SEO 发生实际改动时，还必须追加历史更改记录。
 
 ## 本地运行
 
@@ -52,10 +52,14 @@ npm run build
 
 上线后建议提交：
 
+- Google Search Console：验证域名并提交 sitemap。
 - Bing Webmaster Tools：提交站点和 `sitemap.xml`。
-- 百度搜索资源平台：提交站点和 sitemap。
+- 百度搜索资源平台：提交站点和 sitemap，并可配置部署后的普通收录主动推送。
 - 搜狗站长平台：提交 sitemap，并检查快照更新。
 - 360 搜索站长平台：提交站点和 sitemap。
+- 神马站长平台：验证移动站点并提交 sitemap。
+
+具体账号配置、GitHub Secret 名称和每次发布后的检查步骤见 [`SEARCH_ENGINE_SUBMISSION.md`](./SEARCH_ENGINE_SUBMISSION.md)。
 
 ## 信息维护
 
@@ -97,6 +101,7 @@ npm run build
 3. 创建或复用 Cloudflare Pages 项目 `mxzulin`
 4. 部署 `dist/` 到 Cloudflare Pages
 5. 尝试把自定义域名 `mxzulin.com` 绑定到 Pages 项目
+6. 如果已配置百度站点变量和推送 Token，则把本次 sitemap URL 提交到百度普通收录接口
 
 GitHub Secrets 需要包含：
 
@@ -106,6 +111,11 @@ GitHub Secrets 需要包含：
 GitHub Variables 需要包含：
 
 - `SITE_URL=https://mxzulin.com`
+
+百度主动推送为可选配置：
+
+- GitHub Variable：`BAIDU_SITE=https://mxzulin.com`
+- GitHub Secret：`BAIDU_TOKEN`
 
 ## 模板来源
 

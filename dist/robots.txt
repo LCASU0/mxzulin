@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 
-# 搜索引擎可抓取整站静态内容。
-# 部署正式域名后，建议使用：
-# SITE_URL=https://www.example.com npm run build
+# Public static pages may be crawled by search engines.
+# Build with SITE_URL set to generate the production sitemap URL.
 Sitemap: https://mxzulin.com/sitemap.xml

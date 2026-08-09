@@ -12,6 +12,7 @@
         qrcode: "assets/img/contact/wechat-qrcode.jpg"
     };
     const siteUrl = "https://mxzulin.com";
+    const canonicalUrl = `${siteUrl}/`;
     const logoImage = `${siteUrl}/assets/img/logo-dark.png`;
     const navLogoImage = "assets/img/logo-nav.png";
     const faviconImage = "assets/img/logo-favicon.png";
@@ -151,12 +152,12 @@ html(lang='zh-CN')
         meta(property='og:type', content='website')
         meta(property='og:title', content=seoTitle)
         meta(property='og:description', content=seoDescription)
-        meta(property='og:url', content=siteUrl)
+        meta(property='og:url', content=canonicalUrl)
         meta(property='og:image', content=socialImage)
         meta(property='og:image:alt', content=`${companyInfo.name}标志`)
         meta(name='twitter:card', content='summary_large_image')
         meta(name='twitter:image', content=socialImage)
-        link(rel='canonical', href=siteUrl)
+        link(rel='canonical', href=canonicalUrl)
 
         title= seoTitle
 

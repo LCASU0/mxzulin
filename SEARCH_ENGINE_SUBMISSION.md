@@ -4,8 +4,16 @@
 
 - 线上首页允许搜索引擎抓取，未发现 `noindex`、robots 禁止或 Cloudflare 人机验证拦截。
 - `https://www.mxzulin.com/` 已 301 跳转到 `https://mxzulin.com/`，canonical 统一使用根域名。
-- 线上 `sitemap.xml` 当前只有首页和吊装选型页，共 2 个 URL；本地构建已扩展为包含全部真实页面，需在后续部署后重新提交。
+- 生产环境 `sitemap.xml` 已包含首页、吊装选型页和 10 个真实 SEO 落地页，共 12 个 URL。
 - Bing 已收录说明网站具备基本可抓取性。其他搜索引擎未收录，更可能是尚未验证站点、未主动提交、页面数量少或抓取周期较慢，而不是代码被统一屏蔽。
+
+## 2026-08-10 平台状态
+
+- Cloudflare Pages 部署成功，12 个页面全部返回 HTTP 200。
+- `www.mxzulin.com` 正常 301 跳转到 `mxzulin.com`。
+- Baiduspider、Sogou web spider 和 360Spider 均可访问首页，没有服务器或 Cloudflare 拦截。
+- GitHub Variable `BAIDU_SITE=https://mxzulin.com` 已配置；`BAIDU_TOKEN` 必须在百度账号登录并完成站点验证后获取。
+- 百度搜索资源平台、搜狗资源平台和 360 站长平台都要求账号登录后才能添加站点、完成所有权验证并提交 sitemap。当前浏览器没有这些平台的登录状态，尚未完成平台内提交。
 
 ## 代码侧约束
 

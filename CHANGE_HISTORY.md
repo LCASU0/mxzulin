@@ -21,8 +21,11 @@
 | 2026-05-26 | 前端 | `lifting-plan`、选型脚本 | 新增起重机吨位初步选择页，修复固定导航遮挡和提交后刷新问题。 | 本地生成建议、移动端布局检查 | 已部署 |
 | 2026-05-27 | 前端资源 | Hero、设备图、工程案例图 | 替换项目图片并优化六个案例详情文案，去掉占位式描述。 | 图片路径、尺寸和弹窗检查 | 已部署 |
 | 2026-06-30 | SEO | 首页 TDK、正文关键词 | 强化“重庆履带吊”“履带吊租赁”“四川履带吊”，缩短首页标题并保持自然正文。 | HTML 元信息与关键词分布检查 | 已部署 |
-| 2026-08-10 | SEO | 10 个独立落地页、首页内链 | 增加地区词、业务词和常用吨位的真实内容页；每页保留独立 TDK、canonical、结构化数据、正文、FAQ、内链和联系方式，不使用自动跳转门页。 | 静态 HTML、canonical、内链和重复度检查 | 本地待部署 |
-| 2026-08-10 | 构建 | `scripts/build-seo-assets.js`、GitHub Actions | sitemap 自动发现顶层 Pug 页面；`lastmod` 优先采用 Git 最后提交日期；修复 robots 模板乱码；Actions 使用完整 Git 历史。 | 生产域名构建与 XML 检查 | 本地待部署 |
-| 2026-08-10 | SEO 自动化 | `scripts/submit-baidu.js`、GitHub Actions | 增加部署后可选的百度普通收录主动推送；凭据仅从 GitHub Secret 读取，未配置时自动跳过，提交失败不影响 Cloudflare 部署。 | 本地参数校验与脚本静态检查 | 本地待部署 |
-| 2026-08-10 | 文档 | `REQUIREMENTS.md`、`README.md`、`SEARCH_ENGINE_SUBMISSION.md` | 建立强制变更记录约束，并整理 Google、Bing、百度、搜狗、360、神马的验证和提交步骤。 | 文档交叉链接检查 | 本地待部署 |
+| 2026-08-10 | SEO | 10 个独立落地页、首页内链 | 增加地区词、业务词和常用吨位的真实内容页；每页保留独立 TDK、canonical、结构化数据、正文、FAQ、内链和联系方式，不使用自动跳转门页。 | 静态 HTML、canonical、内链和重复度检查 | 已部署：`96511ee` |
+| 2026-08-10 | 构建 | `scripts/build-seo-assets.js`、GitHub Actions | sitemap 自动发现顶层 Pug 页面；`lastmod` 优先采用 Git 最后提交日期；修复 robots 模板乱码；Actions 使用完整 Git 历史。 | 生产域名构建与 XML 检查 | 已部署：`96511ee` |
+| 2026-08-10 | SEO 自动化 | `scripts/submit-baidu.js`、GitHub Actions | 增加部署后可选的百度普通收录主动推送；凭据仅从 GitHub Secret 读取，未配置时自动跳过，提交失败不影响 Cloudflare 部署。 | 本地参数校验与脚本静态检查 | 已部署：`96511ee`；Token 待配置 |
+| 2026-08-10 | 文档 | `REQUIREMENTS.md`、`README.md`、`SEARCH_ENGINE_SUBMISSION.md` | 建立强制变更记录约束，并整理 Google、Bing、百度、搜狗、360、神马的验证和提交步骤。 | 文档交叉链接检查 | 已部署：`96511ee` |
 | 2026-08-10 | SEO 平台配置 | GitHub Actions Variables | 新增 `BAIDU_SITE=https://mxzulin.com`；百度推送 Token 仍需完成百度站点验证后保存为 `BAIDU_TOKEN` Secret。 | `gh variable list` | 变量已配置，Token 待平台登录 |
+| 2026-08-10 | 部署 | GitHub Actions、Cloudflare Pages、`mxzulin.com` | 推送 `96511ee` 并完成 Cloudflare Pages 自动发布；生产域名、自定义域名和证书状态正常。 | Actions `31327780396` 成功；12 个页面均返回 200；`www` 301 到根域名 | 已部署 |
+| 2026-08-10 | SEO 线上验证 | robots、sitemap、百度/搜狗/360 爬虫访问 | 生产 sitemap 已包含 12 个 URL；robots 返回 200 并声明正式 sitemap；Baiduspider、Sogou web spider、360Spider 均可获取首页。 | 生产 HTTP 与 User-Agent 请求检查 | 已验证 |
+| 2026-08-10 | SEO 平台验证 | 百度、搜狗、360 站长平台 | 三个平台均要求登录后才能添加、验证站点和提交 sitemap；当前浏览器没有对应登录状态，因此未伪造“已提交”结果。 | 官方站点管理和登录页面检查 | 待账号登录 |

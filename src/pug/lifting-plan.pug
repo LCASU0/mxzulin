@@ -68,10 +68,10 @@ html(lang='zh-CN')
         meta(property='og:type', content='website')
         meta(property='og:title', content=seoTitle)
         meta(property='og:description', content=seoDescription)
-        meta(property='og:url', content=`${siteUrl}/lifting-plan.html`)
+        meta(property='og:url', content=`${siteUrl}/lifting-plan`)
         meta(property='og:image', content=socialImage)
         meta(name='twitter:card', content='summary_large_image')
-        link(rel='canonical', href=`${siteUrl}/lifting-plan.html`)
+        link(rel='canonical', href=`${siteUrl}/lifting-plan`)
         title= seoTitle
         link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
         link(rel='icon', type='image/png', sizes='64x64', href=faviconImage)
@@ -85,7 +85,7 @@ html(lang='zh-CN')
 
         nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink
             .container
-                a.navbar-brand(href='index.html#home', aria-label=companyInfo.name)
+                a.navbar-brand(href='/#home', aria-label=companyInfo.name)
                     span.navbar-logo-frame
                         img.navbar-logo(src=navLogoImage, width='40', height='40', alt=`${companyInfo.name}标志`)
                     span.brand-mark 敏祥吊装
@@ -95,13 +95,13 @@ html(lang='zh-CN')
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.py-4.py-lg-0
                         li.nav-item
-                            a.nav-link(href='index.html#home') 首页
+                            a.nav-link(href='/#home') 首页
                         li.nav-item
                             a.nav-link(href='#planner') 吊装选型
                         li.nav-item
                             a.nav-link(href='#equipment-parameters') 设备参数
                         li.nav-item
-                            a.nav-link(href='index.html#portfolio') 工程案例
+                            a.nav-link(href='/#portfolio') 工程案例
                         li.nav-item
                             a.nav-link(href='#contact') 联系我们
 

@@ -11842,6 +11842,30 @@ header.masthead .hero-phone strong {
   box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.06);
 }
 
+.seo-entry-list {
+  border-top: 1px solid rgba(33, 37, 41, 0.14);
+}
+
+.seo-entry-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0.9rem 1rem;
+  color: #212529;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(33, 37, 41, 0.14);
+}
+.seo-entry-link:hover, .seo-entry-link:focus-visible {
+  color: #f5b316;
+  background: rgba(245, 179, 22, 0.06);
+}
+.seo-entry-link svg,
+.seo-entry-link i {
+  color: #f5b316;
+}
+
 .seo-faq-card {
   padding: 1.35rem;
 }

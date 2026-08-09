@@ -12,7 +12,9 @@
         qrcode: "assets/img/contact/wechat-qrcode.jpg"
     };
     const siteUrl = "https://mxzulin.com";
-    const pageUrl = `${siteUrl}${page.path}`;
+    const canonicalPath = page.path.replace(/\.html$/, '');
+    const pageUrl = `${siteUrl}${canonicalPath}`;
+    const toCleanRoute = (url) => `/${url.replace(/^\/+/, '').replace(/\.html$/, '')}`;
     const navLogoImage = "assets/img/logo-nav.png";
     const faviconImage = "assets/img/logo-favicon.png";
     const socialImage = `${siteUrl}/assets/img/logo-social.png`;
@@ -78,7 +80,7 @@ mixin consultButtons(extraClass)
 
 mixin relatedCard(link)
     .col-md-6.col-lg-3.mb-3
-        a.seo-related-card(href=link.url)
+        a.seo-related-card(href=toCleanRoute(link.url))
             strong= link.title
             span= link.text
 
@@ -120,7 +122,7 @@ html(lang='zh-CN')
 
         nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink
             .container
-                a.navbar-brand(href='index.html#home', aria-label=companyInfo.name)
+                a.navbar-brand(href='/#home', aria-label=companyInfo.name)
                     span.navbar-logo-frame
                         img.navbar-logo(src=navLogoImage, width='40', height='40', alt=`${companyInfo.name}标志`)
                     span.brand-mark 敏祥吊装
@@ -130,15 +132,15 @@ html(lang='zh-CN')
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.py-4.py-lg-0
                         li.nav-item
-                            a.nav-link(href='index.html#home') 首页
+                            a.nav-link(href='/#home') 首页
                         li.nav-item
-                            a.nav-link(href='chongqing-lvdaidiao.html') 重庆履带吊
+                            a.nav-link(href='/chongqing-lvdaidiao') 重庆履带吊
                         li.nav-item
-                            a.nav-link(href='lvdaidiao-zulin.html') 履带吊租赁
+                            a.nav-link(href='/lvdaidiao-zulin') 履带吊租赁
                         li.nav-item
-                            a.nav-link(href='chongqing-diaoche-chuzu.html') 重庆吊车出租
+                            a.nav-link(href='/chongqing-diaoche-chuzu') 重庆吊车出租
                         li.nav-item
-                            a.nav-link(href='lifting-plan.html') 吊装选型
+                            a.nav-link(href='/lifting-plan') 吊装选型
                         li.nav-item
                             a.nav-link(href='#contact') 联系我们
 
@@ -148,7 +150,7 @@ html(lang='zh-CN')
                 .row.align-items-center
                     .col-lg-8
                         nav.seo-breadcrumb(aria-label='当前位置')
-                            a(href='index.html') 首页
+                            a(href='/') 首页
                             span /
                             span= page.h1
                         .masthead-kicker= page.kicker
@@ -302,7 +304,7 @@ html(lang='zh-CN')
                     .col-lg-6.text-lg-start
                         | Copyright &copy; #{companyInfo.name} 2026
                     .col-lg-6.text-lg-end
-                        a.footer-link(href='index.html') 返回首页
+                        a.footer-link(href='/') 返回首页
                         span.mx-2 ·
                         | 致力服务于渝贵川及周边区县
 

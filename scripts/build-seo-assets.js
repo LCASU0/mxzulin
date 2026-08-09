@@ -43,7 +43,7 @@ function collectSitemapPages() {
         });
 
     return files.map((file) => {
-        const loc = file === 'index.pug' ? '/' : `/${file.replace(/\.pug$/, '.html')}`;
+        const loc = file === 'index.pug' ? '/' : `/${file.replace(/\.pug$/, '')}`;
         const isHome = file === 'index.pug';
         const isCoreSeo = ['chongqing-lvdaidiao.pug', 'lvdaidiao-zulin.pug', 'sichuan-lvdaidiao.pug', 'chongqing-diaoche-chuzu.pug'].includes(file);
         return {

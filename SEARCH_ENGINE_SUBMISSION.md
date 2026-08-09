@@ -23,6 +23,7 @@
 - sitemap 只放 canonical、可索引且希望进入搜索结果的 URL。
 - sitemap 的 `lastmod` 必须反映页面内容真实变更日期，不在每次部署时伪造全部页面更新时间。
 - 正式域名统一为 `https://mxzulin.com`，不同时提交 `www`、Pages 默认域名或重复 `.html`/无后缀地址。
+- Cloudflare Pages 会把 `.html` 地址 308 到无后缀地址，因此 canonical、sitemap 和站内链接统一使用无后缀生产 URL。
 - 搜索引擎验证码可以写入页面或根目录验证文件；Token、API Key 必须放在 GitHub Secrets，禁止提交到仓库。
 
 ## GitHub Actions 自动化

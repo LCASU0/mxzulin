@@ -50,6 +50,18 @@
     };
     const crawlerCranes = ["55吨", "75吨", "100吨", "135吨", "150吨", "200吨", "280吨", "320吨", "400吨", "500吨"];
     const truckCranes = ["25吨", "55吨", "75吨", "100吨", "135吨", "150吨", "200吨", "280吨", "320吨", "400吨", "500吨"];
+    const seoEntryLinks = [
+        ["重庆履带吊租赁", "/chongqing-lvdaidiao"],
+        ["履带吊租赁", "/lvdaidiao-zulin"],
+        ["四川履带吊租赁", "/sichuan-lvdaidiao"],
+        ["重庆吊车出租", "/chongqing-diaoche-chuzu"],
+        ["55吨履带吊租赁", "/crawler-crane-55t"],
+        ["75吨履带吊租赁", "/crawler-crane-75t"],
+        ["100吨履带吊租赁", "/crawler-crane-100t"],
+        ["200吨履带吊租赁", "/crawler-crane-200t"],
+        ["320吨履带吊租赁", "/crawler-crane-320t"],
+        ["500吨履带吊租赁", "/crawler-crane-500t"]
+    ];
     const portfolioItems = [
         {
             id: 1,
@@ -186,7 +198,7 @@ html(lang='zh-CN')
                         li.nav-item
                             a.nav-link(href='#truck-crane') 汽车式起重机
                         li.nav-item
-                            a.nav-link(href='lifting-plan.html') 吊装选型
+                            a.nav-link(href='/lifting-plan') 吊装选型
                         li.nav-item
                             a.nav-link(href='#portfolio') 工程案例
                         li.nav-item
@@ -216,7 +228,7 @@ html(lang='zh-CN')
                             a.btn.btn-outline-light.btn-xl(href='#crawler-crane')
                                 i.fas.fa-list-check.me-2
                                 | 查看设备吨位
-                            a.btn.btn-primary.btn-xl(href='lifting-plan.html')
+                            a.btn.btn-primary.btn-xl(href='/lifting-plan')
                                 i.fas.fa-calculator.me-2
                                 | 吊装选型初算
 
@@ -273,7 +285,7 @@ html(lang='zh-CN')
                             p 已新增吊装选型初算页面，汇总汽车式起重机、履带式起重机吨位，并可根据吊重、高度、距离整理初步咨询方案。
                             p 沟通时建议说明：吊装物重量、尺寸、作业地点、作业高度、作业半径、现场环境和使用时间。
                             p.mb-0 页面输出只作为初步沟通参考，最终仍需结合起重机工况表、现场站位、地基承载、索具和安全要求复核。
-                            a.btn.btn-primary.mt-3(href='lifting-plan.html')
+                            a.btn.btn-primary.mt-3(href='/lifting-plan')
                                 i.fas.fa-calculator.me-2
                                 | 打开吊装选型初算
                     .col-lg-5.mt-4.mt-lg-0
@@ -329,6 +341,18 @@ html(lang='zh-CN')
                             i.fas.fa-phone-volume
                             h3 联系直接
                             p 电话和微信同号，客户可直接联系唐经理，不需要填写表单。
+
+        section.page-section.seo-entry-section.bg-light(aria-labelledby='seo-entry-title')
+            .container
+                .text-center
+                    h2#seo-entry-title.section-heading 常用起重机租赁入口
+                    p.section-subheading.text-muted 按服务区域、设备类型和常用吨位查看对应租赁信息。
+                nav.row.g-0.seo-entry-list(aria-label='起重机租赁相关页面')
+                    each link in seoEntryLinks
+                        .col-sm-6.col-lg-4
+                            a.seo-entry-link(href=link[1])
+                                span= link[0]
+                                i.fas.fa-chevron-right(aria-hidden='true')
 
         // Contact
         section#contact.page-section

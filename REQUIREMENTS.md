@@ -604,16 +604,16 @@ PowerShell 如拦截 `npm.ps1`，使用 `npm.cmd`。
 
 本次新增首批 10 个真实 SEO 落地页：
 
-1. `/chongqing-lvdaidiao.html`：重庆履带吊租赁
-2. `/lvdaidiao-zulin.html`：履带吊租赁
-3. `/sichuan-lvdaidiao.html`：四川履带吊租赁
-4. `/chongqing-diaoche-chuzu.html`：重庆吊车出租
-5. `/crawler-crane-55t.html`：55吨履带吊租赁
-6. `/crawler-crane-75t.html`：75吨履带吊租赁
-7. `/crawler-crane-100t.html`：100吨履带吊租赁
-8. `/crawler-crane-200t.html`：200吨履带吊租赁
-9. `/crawler-crane-320t.html`：320吨履带吊租赁
-10. `/crawler-crane-500t.html`：500吨履带吊租赁
+1. `/chongqing-lvdaidiao`：重庆履带吊租赁
+2. `/lvdaidiao-zulin`：履带吊租赁
+3. `/sichuan-lvdaidiao`：四川履带吊租赁
+4. `/chongqing-diaoche-chuzu`：重庆吊车出租
+5. `/crawler-crane-55t`：55吨履带吊租赁
+6. `/crawler-crane-75t`：75吨履带吊租赁
+7. `/crawler-crane-100t`：100吨履带吊租赁
+8. `/crawler-crane-200t`：200吨履带吊租赁
+9. `/crawler-crane-320t`：320吨履带吊租赁
+10. `/crawler-crane-500t`：500吨履带吊租赁
 
 实现要求：
 
@@ -623,3 +623,4 @@ PowerShell 如拦截 `npm.ps1`，使用 `npm.cmd`。
 - 首页增加“常用吊装租赁搜索入口”，为新页面提供内部链接。
 - `sitemap.xml` 自动包含所有 Pug 顶层页面，并写入 `changefreq` 和 `priority`。
 - `robots.txt` 明确允许整站抓取，并指向 sitemap。
+- Cloudflare Pages 生产 URL 统一使用无 `.html` 后缀形式；canonical、sitemap 和站内链接必须与最终返回 200 的地址一致。

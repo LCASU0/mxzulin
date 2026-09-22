@@ -1,0 +1,69 @@
+import java.net.URL
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.lcasu.iperf3'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.lcasu.iperf3"
+        minSdk 28
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+}
+
+def iperfVersion = "iperf3.21"
+def iperfBase = "https://raw.githubusercontent.com/davidBar-On/android-iperf3/gh-pages/libs"
+def iperfAbis = ["arm64-v8a", "armeabi-v7a", "x86", "x86_64"]
+
+tasks.register("downloadIperf3") {
+    doLast {
+        iperfAbis.each { abi ->
+            def dir = file("src/main/jniLibs/${abi}")
+            dir.mkdirs()
+            def out = new File(dir, "libiperf3.so")
+            if (out.exists() && out.length() > 50000) {
+                println("iPerf3 ${abi}: already present")
+                return
+            }
+            def url = "${iperfBase}/${abi}/${iperfVersion}"
+            println("Downloading ${url}")
+            new URL(url).withInputStream { input ->
+                out.withOutputStream { output -> output << input }
+            }
+            if (out.length() < 50000) {
+                out.delete()
+                throw new GradleException("Downloaded iPerf3 for ${abi} is unexpectedly small.")
+            }
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(tasks.named("downloadIperf3"))
+}

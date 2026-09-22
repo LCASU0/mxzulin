@@ -1,0 +1,55 @@
+name: ChatGPT iPerf3 Android APK
+
+on:
+  push:
+    branches:
+      - chatgpt-iperf3-build-20260922
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: iperf3-android
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK 35
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Set up Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Build APK
+        run: gradle :app:assembleDebug --stacktrace
+
+      - name: Prepare APK
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/iPerf3-Android-Client-Server.apk
+          sha256sum dist/iPerf3-Android-Client-Server.apk > dist/SHA256.txt
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: iPerf3-Android-Client-Server
+          path: |
+            iperf3-android/dist/iPerf3-Android-Client-Server.apk
+            iperf3-android/dist/SHA256.txt
+          if-no-files-found: error
